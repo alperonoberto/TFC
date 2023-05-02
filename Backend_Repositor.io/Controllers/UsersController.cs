@@ -10,38 +10,38 @@ namespace Backend_Repositor.io.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly RepositorDbContext context;
+        private readonly RepositorDbContext _context;
 
         public UsersController(RepositorDbContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await context.Users.ToListAsync();
+            var users = await _context.Users.ToListAsync();
 
             return Ok(users);
         }
 
         [HttpPost]
-        [Route("/add")]
+        [Route("add")]
         public async Task<IActionResult> AddUser([FromBody] User userRequest)
         {
             userRequest.Id = Guid.NewGuid();
 
-            await context.Users.AddAsync(userRequest);
-            await context.SaveChangesAsync();
+            await _context.Users.AddAsync(userRequest);
+            await _context.SaveChangesAsync();
 
             return Ok(userRequest);
         }
 
         [HttpGet]
-        [Route("/{id:Guid}")]
+        [Route("{id:Guid}")]
         public async Task<IActionResult> GetUser([FromRoute] Guid id)
         {
-            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
             if (user == null)
             {
@@ -52,10 +52,10 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpPut]
-        [Route("/{id:Guid}")]
+        [Route("update/{id:Guid}")]
         public async Task<IActionResult> UpdateUser([FromRoute] Guid id, User updateUserRequest)
         {
-            var user = await context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
             if (user == null)
             {
@@ -68,24 +68,24 @@ namespace Backend_Repositor.io.Controllers
             user.FriendList = updateUserRequest.FriendList;
             user.Repositories = updateUserRequest.Repositories;
 
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return Ok(user);
         }
 
         [HttpDelete]
-        [Route("/{id:Guid}")]
+        [Route("delete/{id:Guid}")]
         public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
         {
-            var user = await context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(id);
 
             if (user == null)
             {
                 return NotFound();
             }
 
-            context.Users.Remove(user);
-            await context.SaveChangesAsync();
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
 
             return Ok();
         }

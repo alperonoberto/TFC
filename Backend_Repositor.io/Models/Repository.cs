@@ -9,6 +9,6 @@ namespace Backend_Repositor.io.Models
         public string Description { get; set; }
 
         public virtual User User { get; set; }
-        public virtual ICollection<File> Files { get; set; }
+        public virtual List<UserFile> Files { get; set; }
     }
 }

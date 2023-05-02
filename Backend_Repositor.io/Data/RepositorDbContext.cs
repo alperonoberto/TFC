@@ -9,5 +9,6 @@ namespace Backend_Repositor.io.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Repository> Repositories { get; set; }
+        public DbSet<UserFile> Files { get; set; }
     }
 }

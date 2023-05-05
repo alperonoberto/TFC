@@ -1,0 +1,30 @@
+<mat-toolbar color="primary" style="padding: 3rem 1rem">
+  <a class="logo-container" routerLink="/login">
+    <img src="../../../assets/logo.png" alt="logo">
+    <span>Repositor.io</span>
+  </a>
+  <div class="spacer">
+    <mat-form-field appearance="fill">
+      <mat-label>Search users, friends, repos...</mat-label>
+      <input matInput placeholder="">
+      <mat-icon matSuffix color="primary" class="search-icon">search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="container">
+    <div class="icon-container">
+      <button mat-icon-button class="icon-container">
+        <mat-icon>assignment</mat-icon>
+      </button>
+      <span>Documentación</span>
+    </div>
+    <div class="icon-container">
+      <button mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <span>Usuario</span>
+    </div>
+    <button mat-icon-button>
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

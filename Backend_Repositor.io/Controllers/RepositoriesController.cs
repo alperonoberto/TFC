@@ -18,14 +18,14 @@ namespace Backend_Repositor.io.Controllers
         }
 
         // GET: api/<RepositoriesController>
-        //[HttpGet]
-        //[Route("/{id:Guid}")]
-        //public async Task<IActionResult> GetRepositories([FromRoute] Guid userId)
-        //{
-        //    var repos = await _context.Repositories.FindAsync(userId);
+        [HttpGet]
+        [Route("/{id:Guid}")]
+        public async Task<IActionResult> GetRepositories([FromRoute] Guid userId)
+        {
+            var repos = await _context.Repositories.FindAsync(userId);
 
-        //    return Ok(repos);
-        //}
+            return Ok(repos);
+        }
 
         // POST api/<RepositoriesController>
         [HttpPost]

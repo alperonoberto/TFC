@@ -1,30 +1,22 @@
-<mat-toolbar color="primary" style="padding: 3rem 1rem">
-  <a class="logo-container" routerLink="/login">
-    <img src="../../../assets/logo.png" alt="logo">
-    <span>Repositor.io</span>
-  </a>
-  <div class="spacer">
-    <mat-form-field appearance="fill">
-      <mat-label>Search users, friends, repos...</mat-label>
-      <input matInput placeholder="">
-      <mat-icon matSuffix color="primary" class="search-icon">search</mat-icon>
-    </mat-form-field>
-  </div>
-  <div class="container">
-    <div class="icon-container">
-      <button mat-icon-button class="icon-container">
-        <mat-icon>assignment</mat-icon>
-      </button>
-      <span>Documentación</span>
+<mat-toolbar color="primary" style="padding: 1rem 0;">
+  <mat-toolbar-row>
+    <div class="logo-container" (click)="redirectHome()">
+      <img src="../../../assets/logo.png" alt="logo">
+      <h1>Repositor.io</h1>
     </div>
-    <div class="icon-container">
-      <button mat-icon-button>
-        <mat-icon>account_circle</mat-icon>
-      </button>
-      <span>Usuario</span>
+    <span class="spacer">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Buscar usuarios, repositorios, etc..." >
+        <button matSuffix mat-button color="primary" style="text-align: center;">
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </span>
+    <div>
+      <a mat-button [routerLink]="'/home'"> <mat-icon>house</mat-icon> Inicio </a>
+      <a mat-button [routerLink]="'/register'"> <mat-icon>assignment</mat-icon> Crear cuenta </a>
+      <a mat-button [routerLink]="'/login'"> <mat-icon>login</mat-icon> Iniciar sesión </a>
+      <a mat-button [routerLink]="'/contact'"> <mat-icon>phone</mat-icon> Contacto </a>
     </div>
-    <button mat-icon-button>
-      <mat-icon>menu</mat-icon>
-    </button>
-  </div>
+  </mat-toolbar-row>
 </mat-toolbar>

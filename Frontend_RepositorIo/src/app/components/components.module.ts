@@ -10,13 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
     ToolbarComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
@@ -25,12 +30,15 @@ import { LoginComponent } from './login/login.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    RouterModule
   ],
   exports: [
     ToolbarComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    ContactComponent
   ]
 })
 export class ComponentsModule { }

@@ -2,21 +2,25 @@
   <mat-toolbar-row>
     <div class="logo-container" (click)="redirectHome()">
       <img src="../../../assets/logo.png" alt="logo">
-      <h1>Repositor.io</h1>
+      <span>Repositor.io</span>
     </div>
     <span class="spacer">
-      <mat-form-field>
-        <input type="text" matInput placeholder="Buscar usuarios, repositorios, etc..." >
+      <mat-form-field *ngIf="isLoggedIn">
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput placeholder="Usuarios, repositorios, etc...">
         <button matSuffix mat-button color="primary" style="text-align: center;">
           <mat-icon>search</mat-icon>
         </button>
       </mat-form-field>
     </span>
-    <div>
+    <div class="links">
       <a mat-button [routerLink]="'/home'"> <mat-icon>house</mat-icon> Inicio </a>
-      <a mat-button [routerLink]="'/register'"> <mat-icon>assignment</mat-icon> Crear cuenta </a>
-      <a mat-button [routerLink]="'/login'"> <mat-icon>login</mat-icon> Iniciar sesión </a>
       <a mat-button [routerLink]="'/contact'"> <mat-icon>phone</mat-icon> Contacto </a>
+      <a mat-button [routerLink]="'/register'" *ngIf="!isLoggedIn"> <mat-icon>assignment</mat-icon> Crear cuenta </a>
+      <a mat-button [routerLink]="'/login'" *ngIf="!isLoggedIn"> <mat-icon>login</mat-icon> Iniciar sesión </a>
+      <a mat-button [routerLink]="'/repositories'" *ngIf="isLoggedIn"> <mat-icon>archive</mat-icon> Repositorios </a>
+      <a mat-button [routerLink]="'/logut'" *ngIf="isLoggedIn"> <mat-icon>logout</mat-icon> Cerrar sesión </a>
+      <a mat-button [routerLink]="'/user/:id'" *ngIf="isLoggedIn"> <mat-icon>account_circle</mat-icon> Mi cuenta </a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

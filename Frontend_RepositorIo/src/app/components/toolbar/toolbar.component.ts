@@ -7,9 +7,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  constructor(private router: Router) {
+  isLoggedIn: boolean = false;
 
-  }
+  constructor(private router: Router) { }
 
   redirectHome() {
     this.router.navigate(['home']);

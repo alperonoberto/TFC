@@ -4,10 +4,15 @@
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
             <mat-card-title style="text-align: center; margin-bottom: 2rem;">Inicio de sesión</mat-card-title>
             <mat-form-field>
-                <input type="text" matInput placeholder="Usuario" formControlName="username">
+                <mat-label>Usuario</mat-label>
+                <input type="text" matInput formControlName="username">
+                <mat-error *ngIf="loginForm.hasError('required')">
+                    Email is <strong>required</strong>
+                </mat-error>
             </mat-form-field>
             <mat-form-field>
-                <input type="password" matInput placeholder="Contraseña" formControlName="password">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput formControlName="password">
             </mat-form-field>
             <button type="submit" mat-flat-button color="primary" style="width: 100%;">Login</button>
             <mat-card-footer style="margin-top: 1rem;">

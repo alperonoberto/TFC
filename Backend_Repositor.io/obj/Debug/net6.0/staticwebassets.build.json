@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uqtlvepBNxi5psJl9Ts9+oAwUvfmagKRQBs3dH0sEXQ=",
+  "Hash": "rXohIxKZ0Q8dahuEi/oS2RHfkvgKSJCw7OLWWC6Z9TI=",
   "Source": "Backend_Repositor.io",
   "BasePath": "_content/Backend_Repositor.io",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "Backend_Repositor.io\\wwwroot",
       "Source": "Backend_Repositor.io",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC_ALBERTO\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\TFC\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "Pattern": "**"
     }

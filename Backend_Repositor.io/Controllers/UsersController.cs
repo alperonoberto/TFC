@@ -29,7 +29,7 @@ namespace Backend_Repositor.io.Controllers
         [Route("add")]
         public async Task<IActionResult> AddUser([FromBody] User userRequest)
         {
-            userRequest.Id = Guid.NewGuid();
+
 
             await _context.Users.AddAsync(userRequest);
             await _context.SaveChangesAsync();
@@ -38,8 +38,8 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpGet]
-        [Route("{id:Guid}")]
-        public async Task<IActionResult> GetUser([FromRoute] Guid id)
+        [Route("{id}")]
+        public async Task<IActionResult> GetUser([FromRoute] int id)
         {
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -52,8 +52,8 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpPut]
-        [Route("update/{id:Guid}")]
-        public async Task<IActionResult> UpdateUser([FromRoute] Guid id, User updateUserRequest)
+        [Route("update/{id}")]
+        public async Task<IActionResult> UpdateUser([FromRoute] int id, User updateUserRequest)
         {
             var user = await _context.Users.FindAsync(id);
 
@@ -74,8 +74,8 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{id:Guid}")]
-        public async Task<IActionResult> DeleteUser([FromRoute] Guid id)
+        [Route("delete/{id}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int id)
         {
             var user = await _context.Users.FindAsync(id);
 

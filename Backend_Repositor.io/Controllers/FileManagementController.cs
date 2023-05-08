@@ -32,7 +32,7 @@ namespace Backend_Repositor.io.Controllers
             [Route("/add")]
             public async Task<IActionResult> AddFile([FromBody] UserFile fileRequest, IFormFile file)
             {
-                fileRequest.Id = Guid.NewGuid();
+
 
                 var path = Path.Combine(_env.ContentRootPath, "Uploads");
 
@@ -59,8 +59,8 @@ namespace Backend_Repositor.io.Controllers
             }
 
             [HttpGet]
-            [Route("/{id:Guid}")]
-            public async Task<IActionResult> GetFile([FromRoute] Guid id)
+            [Route("/{id}")]
+            public async Task<IActionResult> GetFile([FromRoute] int id)
             {
                 var file = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
@@ -73,8 +73,8 @@ namespace Backend_Repositor.io.Controllers
             }
 
             [HttpPut]
-            [Route("/{id:Guid}")]
-            public async Task<IActionResult> UpdateFile([FromRoute] Guid id, UserFile updateFileRequest)
+            [Route("/{id}")]
+            public async Task<IActionResult> UpdateFile([FromRoute] int id, UserFile updateFileRequest)
             {
                 var file = await _context.Files.FindAsync(id);
 
@@ -93,7 +93,7 @@ namespace Backend_Repositor.io.Controllers
 
             [HttpDelete]
             [Route("/{id:Guid}")]
-            public async Task<IActionResult> DeleteFile([FromRoute] Guid id)
+            public async Task<IActionResult> DeleteFile([FromRoute] int id)
             {
                 var file = await _context.Files.FindAsync(id);
 

@@ -19,8 +19,8 @@ namespace Backend_Repositor.io.Controllers
 
         // GET: api/<RepositoriesController>
         [HttpGet]
-        [Route("/{id:Guid}")]
-        public async Task<IActionResult> GetRepositories([FromRoute] Guid userId)
+        [Route("/{id}")]
+        public async Task<IActionResult> GetRepositories([FromRoute] int userId)
         {
             var repos = await _context.Repositories.FindAsync(userId);
 
@@ -31,8 +31,7 @@ namespace Backend_Repositor.io.Controllers
         [HttpPost]
         [Route("add")]
         public async Task<IActionResult> GetRepository([FromBody] Repository repositoryRequest)
-        {
-            repositoryRequest.Id = Guid.NewGuid();
+        { 
 
             await _context.Repositories.AddAsync(repositoryRequest);
             await _context.SaveChangesAsync();
@@ -41,8 +40,8 @@ namespace Backend_Repositor.io.Controllers
         }
 
         // PUT api/<RepositoriesController>/5
-        [HttpPut("update/{id:Guid}")]
-        public async Task<IActionResult> Put([FromRoute] Guid id, Repository updateRepoRequest)
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Put([FromRoute] int id, Repository updateRepoRequest)
         {
             var repository = await _context.Repositories.FindAsync(id);
 
@@ -62,8 +61,8 @@ namespace Backend_Repositor.io.Controllers
         }
 
         // DELETE api/<RepositoriesController>/5
-        [HttpDelete("delete/{id:Guid}")]
-        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        [HttpDelete("delete/{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var repository = await _context.Repositories.FindAsync(id);
 

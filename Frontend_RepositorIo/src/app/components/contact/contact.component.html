@@ -1,1 +1,21 @@
-<p style="margin-top: 20rem;">contact works!</p>
+<mat-card style="text-align: center;">
+    <mat-card-title>Envíanos un correo con tus dudas</mat-card-title>
+    <mat-card-subtitle>Responderemos a la mayor brevedad posible</mat-card-subtitle>
+    <mat-card-content>
+        <form (ngSubmit)="submit()">
+            <mat-form-field>
+                <mat-label>Autor</mat-label>
+                <input type="text" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Asunto</mat-label>
+                <input type="text" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Descripción</mat-label>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+            </mat-form-field>
+            <button mat-flat-button color="primary">Enviar</button>
+        </form>
+    </mat-card-content>
+</mat-card>

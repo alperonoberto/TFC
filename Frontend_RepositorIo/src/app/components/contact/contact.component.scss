@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 89vh;
+}
+
+mat-card {
+    padding: 5rem;
+    width: fit-content;
+}
+
+mat-card-subtitle {
+    margin-bottom: 3rem;
+}
+
+mat-card-content {
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+textarea {
+    columns: 30;
+    rows: 40
+}

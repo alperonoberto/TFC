@@ -1,0 +1,37 @@
+:host {
+    display: grid;
+    place-content: center;
+    background-image: url(../../../assets/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 89vh;
+}
+
+mat-card {
+    width: max-content;
+    padding: 5rem;
+}
+
+mat-card-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width:auto;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+input[type="text"] {
+    width: 30rem;
+}
+
+img {
+    width: 30rem;
+    height: auto;
+}

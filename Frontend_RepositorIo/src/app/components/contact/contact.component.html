@@ -2,10 +2,11 @@
     <mat-card-title>Envíanos un correo con tus dudas</mat-card-title>
     <mat-card-subtitle>Responderemos a la mayor brevedad posible</mat-card-subtitle>
     <mat-card-content>
+        <img mat-card-image src="../../../assets/contact.jpg" alt="contact">
         <form (ngSubmit)="submit()">
             <mat-form-field>
-                <mat-label>Autor</mat-label>
-                <input type="text" matInput>
+                <mat-label>Email</mat-label>
+                <input type="email" matInput>
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Asunto</mat-label>

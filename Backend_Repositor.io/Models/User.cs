@@ -1,17 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Backend_Repositor.io.Models
+﻿namespace Backend_Repositor.io.Models
 {
     public class User
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
+        public long Id { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
-
-        public virtual List<User> FriendList { get; set; }
-        public virtual List<Repository> Repositories { get; set; } 
+        public string Email { get; set; }
+        public List<Relation> Relations { get; set; }
     }
 }

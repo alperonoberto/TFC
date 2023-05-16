@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -39,7 +40,8 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     MatInputModule,
     RouterModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule
   ],
   exports: [
     ToolbarComponent,

@@ -1,0 +1,13 @@
+.container {
+    padding: 2rem 2rem 0 2rem;
+    mat-grid-list {
+
+        mat-grid-tile {
+            width: auto;
+            height: auto;
+            background-color: thistle;
+
+            border-radius: 10px;
+        }
+    }
+}

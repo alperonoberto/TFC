@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-image: url(../../../assets/background.jpg);
+    height: 80vh;
+    padding-top: 5rem;
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-self: start;
+        gap: 5rem;
+        width: 75%;
+
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.275);
+        border-radius: 10px;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 30%;
+            text-align: justify;
+            text-justify: inter-word;
+    
+            p:last-child {
+                text-align: start;
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                width: max-content;
+                font-size: medium;
+    
+                button {
+                    padding: 1.5rem 1rem;
+                }
+            }
+    
+            span {
+                color: yellowgreen;
+            }
+        }
+
+        .img {
+            display: flex;
+            align-items: center;
+    
+            img {
+                width: 35rem;
+                height: auto;
+            }
+        }
+    }
+}

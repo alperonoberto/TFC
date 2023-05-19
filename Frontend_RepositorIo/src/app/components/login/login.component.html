@@ -2,7 +2,8 @@
     <mat-card-content>
         <img mat-card-image src="../../../assets/login.png" alt="Login image">
         <form [formGroup]="loginForm" (ngSubmit)="submit()">
-            <mat-card-title style="text-align: center; margin-bottom: 2rem;">Inicio de sesión</mat-card-title>
+            <mat-card-title style="text-align: center;">Inicio de sesión</mat-card-title>
+            <mat-card-subtitle style=" margin-bottom: 2rem;" *ngIf="loginError">El usuario o la contraseña son incorrectos :/</mat-card-subtitle>
             <mat-form-field>
                 <mat-label>Usuario</mat-label>
                 <input type="text" matInput formControlName="username">

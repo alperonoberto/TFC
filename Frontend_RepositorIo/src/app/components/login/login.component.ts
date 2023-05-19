@@ -15,6 +15,8 @@ export class LoginComponent {
   
   constructor(private loginService: LoginService, private router: Router) {}
 
+  loginError: boolean = false;
+
   testUser = {
     username: "aaaa",
     password: "1234"
@@ -31,7 +33,10 @@ export class LoginComponent {
     if(this.loginForm.value.username == this.testUser.username && this.loginForm.value.password == this.testUser.password) {
       this.loginService.isLoggedIn.emit(true);
       this.router.navigate(['/home'])
+    } else {
+      this.loginError = true;
     }
+    this.loginForm.reset();
   }
 }
 

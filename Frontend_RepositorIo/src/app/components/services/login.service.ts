@@ -8,6 +8,7 @@ export class LoginService {
   constructor() { }
 
   @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() loginError: EventEmitter<boolean> = new EventEmitter();
 
   
 }

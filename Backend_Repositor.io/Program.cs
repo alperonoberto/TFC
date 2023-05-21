@@ -9,7 +9,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer("Server=localhost;Database=Repositor.io;Trusted_Connection=true"));
@@ -23,11 +23,11 @@ using(var scope = app.Services.CreateScope())
 }
 
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+//if (app.Environment.IsDevelopment())
+//{
+    //app.UseSwagger();
+    //app.UseSwaggerUI();
+//}
 
 app.UseHttpsRedirection();
 

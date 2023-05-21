@@ -4,6 +4,7 @@ using Backend_Repositor.io.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend_Repositor.io.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230521185050_repositorio")]
+    partial class repositorio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,11 +26,11 @@ namespace Backend_Repositor.io.Migrations
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
                 {
-                    b.Property<long>("UsuarioId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UsuarioId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -37,21 +39,18 @@ namespace Backend_Repositor.io.Migrations
                     b.Property<DateTime?>("FechaMod")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("UsuarioId1")
+                    b.Property<long>("UsuarioId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("UsuarioId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId1");
+                    b.HasIndex("UsuarioId");
 
-                    b.ToTable("Repositorios");
+                    b.ToTable("Repositorio");
                 });
 
             modelBuilder.Entity("Backend_Repositor.io.Models.User", b =>
@@ -83,7 +82,7 @@ namespace Backend_Repositor.io.Migrations
                 {
                     b.HasOne("Backend_Repositor.io.Models.User", "Usuario")
                         .WithMany("Repositorios")
-                        .HasForeignKey("UsuarioId1")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

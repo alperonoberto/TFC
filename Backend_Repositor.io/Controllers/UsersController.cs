@@ -33,7 +33,7 @@ namespace Backend_Repositor.io.Controllers
 
             if (usuario == null)
             {
-                return NotFound();
+                return NotFound("El usuario no existe");
             }
 
             return usuario;
@@ -41,6 +41,7 @@ namespace Backend_Repositor.io.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
+        [Route("add")]
         public async Task<ActionResult<User>> Post([FromBody] User usuario)
         {
             _context.Users.Add(usuario);
@@ -50,14 +51,10 @@ namespace Backend_Repositor.io.Controllers
         }
 
         // PUT api/<UsersController>/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put([FromRoute] long id, User usuario)
+        [HttpPut]
+        [Route("update")]
+        public async Task<IActionResult> Put(User usuario)
         {
-            if (id != usuario.Id)
-            {
-                return BadRequest();
-            }
-
             _context.Entry(usuario).State = EntityState.Modified;
 
             try
@@ -66,7 +63,7 @@ namespace Backend_Repositor.io.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsuarioExists(id))
+                if (!UsuarioExists(usuario.Id))
                 {
                     return NotFound();
                 }
@@ -76,7 +73,7 @@ namespace Backend_Repositor.io.Controllers
                 }
             }
 
-            return Ok();
+            return Ok("Usuario actualizado con exito");
         }
 
         private bool UsuarioExists(long id)
@@ -85,8 +82,9 @@ namespace Backend_Repositor.io.Controllers
         }
 
         // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(long id)
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> Delete([FromRoute]long id)
         {
             var usuario = await _context.Users.FindAsync(id);
 
@@ -98,7 +96,7 @@ namespace Backend_Repositor.io.Controllers
             _context.Users.Remove(usuario);
             await _context.SaveChangesAsync();
 
-            return Ok();
+            return Ok("Usuario borrado con exito");
         }
     }
 }

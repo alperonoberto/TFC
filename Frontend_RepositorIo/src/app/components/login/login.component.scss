@@ -19,6 +19,10 @@ mat-card-content {
     align-items: center;
     gap: 2rem;
     width:auto;
+
+    mat-form-field {
+        margin-top: 1rem;
+    }
 }
 
 form {

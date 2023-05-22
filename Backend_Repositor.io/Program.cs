@@ -4,10 +4,18 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularOrigins",
+    builder =>
+    {
+        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
 
 //builder.Services.AddSwaggerGen();
 
@@ -25,9 +33,11 @@ using(var scope = app.Services.CreateScope())
 
 //if (app.Environment.IsDevelopment())
 //{
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+//app.UseSwagger();
+//app.UseSwaggerUI();
 //}
+
+app.UseCors("AllowAngularOrigins");
 
 app.UseHttpsRedirection();
 

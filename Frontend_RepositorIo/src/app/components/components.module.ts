@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { HttpClientModule } from '@angular/common/http';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -41,7 +42,8 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     RouterModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    HttpClientModule
   ],
   exports: [
     ToolbarComponent,
@@ -50,6 +52,7 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     LoginComponent,
     RegisterComponent,
     ContactComponent
-  ]
+  ],
+  providers: [HttpClientModule],
 })
 export class ComponentsModule { }

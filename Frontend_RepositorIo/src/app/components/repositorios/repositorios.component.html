@@ -5,19 +5,24 @@
                 <h3>{{rep.nombre}}</h3>
                 <h5>{{rep.descripcion}}</h5>
                 <div class="botonera" style="display: flex; gap: 1rem;">
-                    <button mat-flat-button (click)="mostrarArchivos(rep.id)" color="primary">Mostrar</button>
+                    <button mat-flat-button (click)="mostrarArchivos(rep)" color="primary">Mostrar</button>
                     <button mat-flat-button color="primary">Editar</button>
                     <button mat-flat-button color="warn">Eliminar</button>
                 </div>
             </div>
         </mat-grid-tile>
+        <mat-card *ngIf="repositorioActual === 0">
+            <mat-card-content>
+                <mat-card-title>Selecciona un repositorio para ver su contenido</mat-card-title>
+            </mat-card-content>
+        </mat-card>
         <mat-grid-tile colspan="3" *ngIf="repositorioActual !== 0">
+            <h1>{{repositorioActualNombre}}</h1>
             <div class="files">
-                <h1 *ngIf="repositorioActual === 0">Selecciona un repositorio para ver su contenido</h1>
-            <div class="file-card" *ngFor="let file of listaArchivos">
-                <mat-icon>library_books</mat-icon>
-                <span>{{file.nombre}}</span>
-            </div>
+                <div class="file-card" *ngFor="let file of listaArchivos">
+                    <mat-icon>library_books</mat-icon>
+                    <span>{{file.nombre}}</span>
+                </div>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

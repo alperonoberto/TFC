@@ -24,11 +24,11 @@ namespace Backend_Repositor.io.Migrations
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
                 {
-                    b.Property<long>("UsuarioId")
+                    b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("UsuarioId"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
@@ -37,19 +37,16 @@ namespace Backend_Repositor.io.Migrations
                     b.Property<DateTime?>("FechaMod")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("Id")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("UsuarioId1")
+                    b.Property<long>("UsuarioId")
                         .HasColumnType("bigint");
 
-                    b.HasKey("UsuarioId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId1");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("Repositorios");
                 });
@@ -83,7 +80,7 @@ namespace Backend_Repositor.io.Migrations
                 {
                     b.HasOne("Backend_Repositor.io.Models.User", "Usuario")
                         .WithMany("Repositorios")
-                        .HasForeignKey("UsuarioId1")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

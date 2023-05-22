@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
-import { LoginService } from '../services/login.service';
+import { LoginService } from '../services/login/login.service';
 import { Route, Router } from '@angular/router';
 
 
@@ -11,15 +11,25 @@ import { Route, Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   
   constructor(private loginService: LoginService, private router: Router) {}
 
   loginError: boolean = false;
 
-  testUser = {
-    username: "aaaa",
-    password: "1234"
+  public listaUsers = [];
+
+  ngOnInit() {
+    this.loginService.getUsers()
+      .subscribe(
+        res => {
+          this.listaUsers = [res].flat();
+          console.log(this.listaUsers);
+        },
+        err => {
+          console.error('Error GET usuarios');
+        }
+      )
   }
 
   loginForm = new FormGroup({
@@ -30,12 +40,15 @@ export class LoginComponent {
   matcher = new MyErrorStateMatcher();
   
   submit(){
-    if(this.loginForm.value.username == this.testUser.username && this.loginForm.value.password == this.testUser.password) {
-      this.loginService.isLoggedIn.emit(true);
-      this.router.navigate(['/home'])
-    } else {
-      this.loginError = true;
+    for(let i = 0; i < this.listaUsers.length; i++) {
+      let user = this.listaUsers[i];
+      if(this.loginForm.value.username === user["username"] && this.loginForm.value.password === user["password"]) {
+        this.loginService.isLoggedIn.emit(true);
+        this.router.navigate(['/home']);
+      }
     }
+      this.loginError = true;
+
     this.loginForm.reset();
   }
 }

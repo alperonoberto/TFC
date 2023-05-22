@@ -10,6 +10,6 @@ namespace Backend_Repositor.io.Models
         public string Password { get; set; }
         public string Email { get; set; }
 
-        public ICollection<Repositorio> Repositorios { get; set; }
+        public ICollection<Repositorio>? Repositorios { get; set; }
     }
 }

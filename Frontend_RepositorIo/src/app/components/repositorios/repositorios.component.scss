@@ -50,4 +50,12 @@
     gap: 1rem;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
+}
+
+mat-card {
+    position: absolute;
+    right: 2rem;
+    top: 30%;
+    width: 70%;
 }

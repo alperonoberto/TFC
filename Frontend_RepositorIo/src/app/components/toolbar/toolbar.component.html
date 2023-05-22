@@ -20,7 +20,7 @@
       <a mat-button [routerLink]="'/register'" *ngIf="!isLoggedIn"> <mat-icon>assignment</mat-icon> Crear cuenta </a>
       <a mat-button [routerLink]="'/login'" *ngIf="!isLoggedIn"> <mat-icon>login</mat-icon> Iniciar sesión </a>
       <a mat-button [routerLink]="'/logut'" *ngIf="isLoggedIn" (click)="logOut()"> <mat-icon>logout</mat-icon> Cerrar sesión </a>
-      <a mat-button [routerLink]="'/user/:id'" *ngIf="isLoggedIn"> <mat-icon>account_circle</mat-icon> Mi cuenta </a>
+      <a mat-button [routerLink]="'/user'" *ngIf="isLoggedIn"> <mat-icon>account_circle</mat-icon> Mi cuenta </a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

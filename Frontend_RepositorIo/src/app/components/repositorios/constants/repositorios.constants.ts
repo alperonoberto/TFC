@@ -100,16 +100,6 @@ export const LISTA_ARCHIVOS_1 = [
       repositorioId: 1
     },
     {
-      nombre: "archivo4.md",
-      fechaMod: null,
-      repositorioId: 1
-    },
-    {
-      nombre: "archivo5.scss",
-      fechaMod: null,
-      repositorioId: 1
-    },
-    {
       nombre: "archivo2.pdf",
       fechaMod: null,
       repositorioId: 1

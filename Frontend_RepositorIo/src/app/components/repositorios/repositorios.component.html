@@ -20,9 +20,14 @@
             <h1>{{repositorioActualNombre}}</h1>
             <div class="files">
                 <div class="file-card" *ngFor="let file of listaArchivos">
+                    <mat-checkbox></mat-checkbox>
                     <mat-icon>library_books</mat-icon>
                     <span>{{file.nombre}}</span>
                 </div>
+            </div>
+            <div class="botoneraArchivos">
+                <button mat-flat-button color="primary">Descargar</button>
+                <button mat-flat-button color="warn">Eliminar</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

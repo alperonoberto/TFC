@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '
 import {ErrorStateMatcher} from '@angular/material/core';
 
 import { LoginService } from '../services/login/login.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         res => {
           this.listaUsers = [res].flat();
-          console.log(this.listaUsers);
         },
         err => {
           console.error('Error GET usuarios');
@@ -44,13 +43,18 @@ export class LoginComponent implements OnInit {
       let user = this.listaUsers[i];
       if(this.loginForm.value.username === user["username"] && this.loginForm.value.password === user["password"]) {
         this.loginService.isLoggedIn.emit(true);
+        this.loginService.setUserLoggedIn(user);
         this.router.navigate(['/home']);
+        
       }
     }
       this.loginError = true;
 
     this.loginForm.reset();
   }
+
+  
+
 }
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {

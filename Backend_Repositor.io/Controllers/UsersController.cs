@@ -44,6 +44,7 @@ namespace Backend_Repositor.io.Controllers
         [Route("add")]
         public async Task<ActionResult<User>> Post([FromBody] User usuario)
         {
+            usuario.FechaAlta = DateTime.Now;
             _context.Users.Add(usuario);
             await _context.SaveChangesAsync();
 

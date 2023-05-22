@@ -40,6 +40,26 @@
     align-items: center;
     aspect-ratio: 1;
     width: 10rem;
+    position: relative;
+
+    mat-checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.botoneraArchivos {
+    position: fixed;
+    display: flex;
+    bottom: 5rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    button {
+        width: 10rem;
+    }
 }
 
 .files {

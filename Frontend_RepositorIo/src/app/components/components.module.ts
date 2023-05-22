@@ -20,6 +20,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RepositoriosComponent } from './repositorios/repositorios.component';
+import { UserComponent } from './user/user.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     RegisterComponent,
     ContactComponent,
     NotFoundComponent,
-    RepositoriosComponent
+    RepositoriosComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
@@ -43,7 +46,8 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     MatCardModule,
     ReactiveFormsModule,
     MatGridListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCheckboxModule
   ],
   exports: [
     ToolbarComponent,
@@ -51,7 +55,8 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ContactComponent
+    ContactComponent,
+    UserComponent
   ],
   providers: [HttpClientModule],
 })

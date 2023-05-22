@@ -1,0 +1,22 @@
+<div class="container">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>
+                <h1>{{user.username}}</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3>{{user.email}}</h3>
+            </mat-card-subtitle>
+            <div class="content">
+                <img mat-card-avatar src="./../../../assets/anonimo.jpeg" alt="profile">
+                <div class="info">
+                    <ul>
+                        <li>Fecha de alta: {{user.fechaAlta | date:'longTime'}}</li>
+                        <li>Rol: {{user.rol}}</li>
+                    </ul>
+                    <button mat-flat-button color="primary">Editar</button>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

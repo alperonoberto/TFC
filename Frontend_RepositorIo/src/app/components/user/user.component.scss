@@ -1,0 +1,33 @@
+.container {
+    padding: 5rem;
+    background-image: url(./../../../assets/background.jpg);
+    height: 70%;
+}
+
+img {
+    width: 15rem;
+    height: 15rem;
+}
+
+h1, h3 {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+
+    .info {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+
+        ul {
+            margin-left: -1rem;
+        }
+    }
+}
+

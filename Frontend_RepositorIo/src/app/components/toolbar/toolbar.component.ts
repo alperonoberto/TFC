@@ -13,6 +13,7 @@ export class ToolbarComponent {
   constructor(private router: Router, private loginService: LoginService) { }
 
   isLoggedIn: boolean = false;
+  isLoggedInRegister: boolean = this.loginService.isLoggedInRegister;
 
   ngOnInit(): void {
     this.loginService.isLoggedIn.subscribe(data => {
@@ -22,10 +23,10 @@ export class ToolbarComponent {
 
   logOut() {
     this.isLoggedIn = false;
-    this.router.navigate(['/home']);
+    this.redirectHome();
   }
 
   redirectHome() {
-    this.router.navigate(['home']);
+    this.router.navigate(['/home']);
   }
 }

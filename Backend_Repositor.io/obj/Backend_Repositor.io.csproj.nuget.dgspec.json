@@ -1,27 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {}
+    "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {
+    "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+        "projectUniqueName": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
         "projectName": "Backend_Repositor.io",
-        "projectPath": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\obj\\",
+        "projectPath": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+        "packagesPath": "C:\\Users\\ALUMNOS_FP\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ALUMNOS_FP\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -78,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

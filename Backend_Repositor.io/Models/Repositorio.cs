@@ -14,5 +14,7 @@ namespace Backend_Repositor.io.Models
         
         public long UsuarioId { get; set; }
         public User? Usuario { get; set; }
+
+        public ICollection<Archivo> Archivos { get; set; }
     }
 }

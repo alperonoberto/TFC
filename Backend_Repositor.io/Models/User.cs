@@ -13,5 +13,6 @@ namespace Backend_Repositor.io.Models
         public string Rol { get; set; }
 
         public ICollection<Repositorio>? Repositorios { get; set; }
+        public ICollection<Relacion>? Relaciones { get; set; }
     }
 }

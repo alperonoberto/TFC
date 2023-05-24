@@ -37,6 +37,22 @@ namespace Backend_Repositor.io.Controllers
             return repositorio;
         }
 
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<IEnumerable<Repositorio>>> GetRepositoriosByUser([FromRoute]long userId)
+        {
+            var repositorios = new List<Repositorio>();
+            repositorios = await _context.Repositorios
+                .Where(r => r.UsuarioId == userId)
+                .ToListAsync();
+
+            if (repositorios == null)
+            {
+                return NotFound("El usuario no tiene repositorios");
+            }
+
+            return repositorios;
+        }
+
         // POST api/<UsersController>
         [HttpPost]
         [Route("add")]

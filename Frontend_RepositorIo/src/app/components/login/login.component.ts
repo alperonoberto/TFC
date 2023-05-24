@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
         this.loginService.isLoggedIn.emit(true);
         this.loginService.setUserLoggedIn(user);
         this.router.navigate(['/home']);
-        
       }
     }
       this.loginError = true;

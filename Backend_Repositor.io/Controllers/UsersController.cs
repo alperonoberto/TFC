@@ -39,19 +39,6 @@ namespace Backend_Repositor.io.Controllers
             return usuario;
         }
 
-        [HttpGet("relacion/{id}")]
-        public async Task<ActionResult<Relacion>> GetRelacion(long id)
-        {
-            var usuario = await _context.Relaciones.FindAsync(id);
-
-            if (usuario == null)
-            {
-                return NotFound("El usuario no existe");
-            }
-
-            return usuario;
-        }
-
         // POST api/<UsersController>
         [HttpPost]
         [Route("add")]
@@ -59,20 +46,6 @@ namespace Backend_Repositor.io.Controllers
         {
             usuario.FechaAlta = DateTime.Now;
             _context.Users.Add(usuario);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);
-        }
-
-        [HttpPost]
-        [Route("relacion/add")]
-        public async Task<ActionResult<User>> PostRelacion([FromQuery] long usuario1Id, long usuario2Id)
-        {
-            var usuario = new Relacion();
-            usuario.FechaMod = DateTime.Now;
-            usuario.SeguidorId = usuario1Id;
-            usuario.SeguidoId = usuario2Id;
-            _context.Relaciones.Add(usuario);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Id }, usuario);

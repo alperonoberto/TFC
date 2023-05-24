@@ -11,7 +11,7 @@ namespace Backend_Repositor.io.Models
         public long SeguidoId { get; set; }
         public DateTime FechaMod { get; set; }
 
-        public User Seguidor { get; set; }
-        public User Seguido { get; set; }
+        public User? Seguidor { get; set; }
+        public User? Seguido { get; set; }
     }
 }

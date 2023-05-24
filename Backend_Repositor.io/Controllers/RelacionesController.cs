@@ -51,7 +51,7 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpPost]
-        [Route("relacion/add")]
+        [Route("add")]
         public async Task<ActionResult<Relacion>> PostRelacion([FromBody] Relacion relacion)
         {
             relacion.FechaMod = DateTime.Now;

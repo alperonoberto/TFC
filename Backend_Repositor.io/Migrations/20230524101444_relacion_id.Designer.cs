@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend_Repositor.io.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230522202114_user_rol")]
-    partial class user_rol
+    [Migration("20230524101444_relacion_id")]
+    partial class relacion_id
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,59 @@ namespace Backend_Repositor.io.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Backend_Repositor.io.Models.Archivo", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<DateTime?>("FechaSubida")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Filename")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Filepath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("RepositorioId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RepositorioId");
+
+                    b.ToTable("Archivos");
+                });
+
+            modelBuilder.Entity("Backend_Repositor.io.Models.Relacion", b =>
+                {
+                    b.Property<long>("SeguidorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SeguidoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("FechaMod")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.HasKey("SeguidorId", "SeguidoId");
+
+                    b.HasIndex("SeguidoId");
+
+                    b.ToTable("Relaciones");
+                });
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
                 {
@@ -85,6 +138,36 @@ namespace Backend_Repositor.io.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Backend_Repositor.io.Models.Archivo", b =>
+                {
+                    b.HasOne("Backend_Repositor.io.Models.Repositorio", "Repositorio")
+                        .WithMany("Archivos")
+                        .HasForeignKey("RepositorioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Repositorio");
+                });
+
+            modelBuilder.Entity("Backend_Repositor.io.Models.Relacion", b =>
+                {
+                    b.HasOne("Backend_Repositor.io.Models.User", "Seguidor")
+                        .WithMany("Seguido")
+                        .HasForeignKey("SeguidoId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Backend_Repositor.io.Models.User", "Seguido")
+                        .WithMany("Seguidor")
+                        .HasForeignKey("SeguidorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Seguido");
+
+                    b.Navigation("Seguidor");
+                });
+
             modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
                 {
                     b.HasOne("Backend_Repositor.io.Models.User", "Usuario")
@@ -96,9 +179,18 @@ namespace Backend_Repositor.io.Migrations
                     b.Navigation("Usuario");
                 });
 
+            modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
+                {
+                    b.Navigation("Archivos");
+                });
+
             modelBuilder.Entity("Backend_Repositor.io.Models.User", b =>
                 {
                     b.Navigation("Repositorios");
+
+                    b.Navigation("Seguido");
+
+                    b.Navigation("Seguidor");
                 });
 #pragma warning restore 612, 618
         }

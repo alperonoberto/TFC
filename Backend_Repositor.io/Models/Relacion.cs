@@ -1,16 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend_Repositor.io.Models
 {
     public class Relacion
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
-        public long UserSEGUIDORid { get; set; }
-        public long UserSEGUIDOid { get; set; }
+        public long SeguidorId { get; set; }
+        public long SeguidoId { get; set; }
         public DateTime FechaMod { get; set; }
 
-        public long UsuarioId { get; set; }
-        public User? Usuario { get; set; }
+        public User Seguidor { get; set; }
+        public User Seguido { get; set; }
     }
 }

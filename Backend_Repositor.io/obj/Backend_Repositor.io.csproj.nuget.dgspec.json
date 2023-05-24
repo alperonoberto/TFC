@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {}
+    "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {
+    "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
         "projectName": "Backend_Repositor.io",
-        "projectPath": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
-        "packagesPath": "C:\\Users\\ALUMNOS_FP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ALUMNOS_FP\\Desktop\\REPOSITOR.IO\\TFC\\Backend_Repositor.io\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ALUMNOS_FP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -77,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

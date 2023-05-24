@@ -53,27 +53,24 @@ namespace Backend_Repositor.io.Migrations
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Relacion", b =>
                 {
+                    b.Property<long>("SeguidorId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("SeguidoId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("FechaMod")
+                        .HasColumnType("datetime2");
+
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("FechaMod")
-                        .HasColumnType("datetime2");
+                    b.HasKey("SeguidorId", "SeguidoId");
 
-                    b.Property<long>("UserSEGUIDORid")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("UserSEGUIDOid")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("UsuarioId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("SeguidoId");
 
                     b.ToTable("Relaciones");
                 });
@@ -152,13 +149,21 @@ namespace Backend_Repositor.io.Migrations
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Relacion", b =>
                 {
-                    b.HasOne("Backend_Repositor.io.Models.User", "Usuario")
-                        .WithMany("Relaciones")
-                        .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Backend_Repositor.io.Models.User", "Seguidor")
+                        .WithMany("Seguido")
+                        .HasForeignKey("SeguidoId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Usuario");
+                    b.HasOne("Backend_Repositor.io.Models.User", "Seguido")
+                        .WithMany("Seguidor")
+                        .HasForeignKey("SeguidorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Seguido");
+
+                    b.Navigation("Seguidor");
                 });
 
             modelBuilder.Entity("Backend_Repositor.io.Models.Repositorio", b =>
@@ -179,9 +184,11 @@ namespace Backend_Repositor.io.Migrations
 
             modelBuilder.Entity("Backend_Repositor.io.Models.User", b =>
                 {
-                    b.Navigation("Relaciones");
-
                     b.Navigation("Repositorios");
+
+                    b.Navigation("Seguido");
+
+                    b.Navigation("Seguidor");
                 });
 #pragma warning restore 612, 618
         }

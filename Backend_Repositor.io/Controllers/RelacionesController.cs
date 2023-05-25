@@ -31,7 +31,7 @@ namespace Backend_Repositor.io.Controllers
 
             if (relaciones == null)
             {
-                return NotFound("El usuario no existe");
+                return NotFound("La relación no existe");
             }
 
             return relaciones;
@@ -44,7 +44,7 @@ namespace Backend_Repositor.io.Controllers
 
             if (relaciones == null)
             {
-                return NotFound("El usuario no existe");
+                return NotFound("La relación no existe");
             }
 
             return relaciones;
@@ -60,5 +60,55 @@ namespace Backend_Repositor.io.Controllers
 
             return CreatedAtAction(nameof(GetRelaciones), new { id = relacion.Id }, relacion);
         }
+
+        [HttpPut]
+        [Route("update")]
+        public async Task<IActionResult> Put(Relacion relacion)
+        {
+            relacion.FechaMod = DateTime.Now;
+            _context.Entry(relacion).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!RelacionExists(relacion.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok("Relación actualizada con exito");
+        }
+
+        private bool RelacionExists(long id)
+        {
+            return _context.Relaciones.Any(r => r.Id == id);
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> Delete([FromRoute] long id)
+        {
+            var relacion = await _context.Relaciones.FindAsync(id);
+
+            if (relacion == null)
+            {
+                return NotFound();
+            }
+
+            _context.Relaciones.Remove(relacion);
+            await _context.SaveChangesAsync();
+
+            return Ok("Relación borrada con exito");
+        }
+
+
     }
 }

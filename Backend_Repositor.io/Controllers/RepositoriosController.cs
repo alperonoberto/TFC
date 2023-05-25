@@ -112,7 +112,7 @@ namespace Backend_Repositor.io.Controllers
             _context.Repositorios.Remove(repositorio);
             await _context.SaveChangesAsync();
 
-            return Ok("Usuario borrado con exito");
+            return Ok("Repositorio borrado con exito");
         }
     }
 }

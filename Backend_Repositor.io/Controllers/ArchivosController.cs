@@ -1,7 +1,9 @@
 ﻿using Backend_Repositor.io.Data;
+using Backend_Repositor.io.Interfaces;
 using Backend_Repositor.io.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace Backend_Repositor.io.Controllers
 {
@@ -10,12 +12,51 @@ namespace Backend_Repositor.io.Controllers
     public class ArchivosController : ControllerBase
     {
         private readonly AppDbContext _context;
-
-        public ArchivosController(AppDbContext context)
+        private readonly IFileService _fileService;
+        public ArchivosController(AppDbContext context, IFileService fileService)
         {
             _context = context;
+            _fileService = fileService;
         }
 
+        #region Upload File
+        [HttpPost("upload")]
+        public IActionResult Upload([Required] List<IFormFile> formFiles, [Required] string subDirectory)
+        {
+            try
+            {
+                _fileService.UploadFile(formFiles, subDirectory);
+
+                return Ok(new { formFiles.Count, Size = _fileService.SizeConverter(formFiles.Sum(f => f.Length)) });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+#endregion
+
+        #region Download File  
+        [HttpGet("download")]
+        public IActionResult Download([Required] string subDirectory)
+        {
+
+            try
+            {
+                var (fileType, archiveData, archiveName) = _fileService.DownloadFiles(subDirectory);
+
+                return File(archiveData, fileType, archiveName);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        #endregion
+
+
+        #region Metodos basicos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Archivo>>> GetArchivos()
         {
@@ -94,5 +135,6 @@ namespace Backend_Repositor.io.Controllers
 
             return Ok("Archivo borrado con exito");
         }
+        #endregion
     }
 }

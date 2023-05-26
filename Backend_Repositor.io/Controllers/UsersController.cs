@@ -2,6 +2,8 @@
 using Backend_Repositor.io.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace Backend_Repositor.io.Controllers
 {
@@ -98,6 +100,60 @@ namespace Backend_Repositor.io.Controllers
             await _context.SaveChangesAsync();
 
             return Ok("Usuario borrado con exito");
+        }
+
+    }
+
+    public class PasswordEncoderDecoder
+    {
+        public static (string encryptedPassword, string decryptionKey) EncodePassword(string password)
+        {
+            // Generar una clave aleatoria para el desencriptado
+            byte[] key = new byte[32];
+            using (var rng = new RNGCryptoServiceProvider())
+            {
+                rng.GetBytes(key);
+            }
+            string decryptionKey = Convert.ToBase64String(key);
+
+            // Codificar la contraseña
+            using (var aes = new AesCryptoServiceProvider())
+            {
+                aes.GenerateIV();
+                aes.Key = key;
+                byte[] encryptedBytes;
+
+                using (var encryptor = aes.CreateEncryptor())
+                {
+                    byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+                    encryptedBytes = encryptor.TransformFinalBlock(passwordBytes, 0, passwordBytes.Length);
+                }
+
+                string encryptedPassword = Convert.ToBase64String(encryptedBytes);
+                return (encryptedPassword, decryptionKey);
+            }
+        }
+
+        public static string DecodePassword(string encryptedPassword, string decryptionKey)
+        {
+            // Decodificar la cadena base64 del password encriptado y la clave de desencriptado
+            byte[] encryptedBytes = Convert.FromBase64String(encryptedPassword);
+            byte[] key = Convert.FromBase64String(decryptionKey);
+
+            // Desencriptar la contraseña
+            using (var aes = new AesCryptoServiceProvider())
+            {
+                aes.Key = key;
+                byte[] decryptedBytes;
+
+                using (var decryptor = aes.CreateDecryptor())
+                {
+                    decryptedBytes = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+                }
+
+                string decryptedPassword = Encoding.UTF8.GetString(decryptedBytes);
+                return decryptedPassword;
+            }
         }
     }
 }

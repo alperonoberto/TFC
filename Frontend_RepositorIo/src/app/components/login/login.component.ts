@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       
             if(user.username === dbUser["username"] && user.password === dbUser["password"]) {
               this.loginService.isLoggedIn.emit(true);
-              this.loginService.setUserLoggedIn(user);
+              this.loginService.setUserLoggedIn(dbUser);
               this.router.navigate(['/home']);
             }
           }

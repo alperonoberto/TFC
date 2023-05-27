@@ -45,7 +45,7 @@ namespace Backend_Repositor.io.Controllers
         [HttpGet("encrypt")]
         public async Task<string> GetUsuarioEncrypted(string login)
         {
-            var enc = Encryption.EncodePassword(login);
+            var enc = Encryption.EncodePassword(elogin);
             return JsonSerializer.Serialize(enc);   
         }
 

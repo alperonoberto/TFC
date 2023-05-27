@@ -39,17 +39,33 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   
   submit(){
-    for(let i = 0; i < this.listaUsers.length; i++) {
-      let user = this.listaUsers[i];
-      if(this.loginForm.value.username === user["username"] && this.loginForm.value.password === user["password"]) {
-        this.loginService.isLoggedIn.emit(true);
-        this.loginService.setUserLoggedIn(user);
-        this.router.navigate(['/home']);
-      }
+    const user = {
+      username: this.loginForm.value.username,
+      password: null
     }
-      this.loginError = true;
+    this.loginService
+      .getPasswordEncrypted(this.loginForm.value.password)
+      .subscribe(
+        res => {
+          user.password = res;
 
-    this.loginForm.reset();
+          for(let i = 0; i < this.listaUsers.length; i++) {
+            let dbUser = this.listaUsers[i];
+      
+            if(user.username === dbUser["username"] && user.password === dbUser["password"]) {
+              this.loginService.isLoggedIn.emit(true);
+              this.loginService.setUserLoggedIn(user);
+              this.router.navigate(['/home']);
+            }
+          }
+          
+          this.loginError = true;
+          this.loginForm.reset();
+        },
+        err => {
+          console.error(err)
+        }
+      );
   }
 
   

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
 
 namespace Backend_Repositor.io.Controllers
 {
@@ -32,7 +33,7 @@ namespace Backend_Repositor.io.Controllers
         public async Task<ActionResult<User>> GetUsuario(long id)
         {
             var usuario = await _context.Users.FindAsync(id);
-
+            
             if (usuario == null)
             {
                 return NotFound("El usuario no existe");
@@ -41,12 +42,20 @@ namespace Backend_Repositor.io.Controllers
             return usuario;
         }
 
+        [HttpGet("encrypt")]
+        public async Task<string> GetUsuarioEncrypted(string login)
+        {
+            var enc = Encryption.EncodePassword(login);
+            return JsonSerializer.Serialize(enc);   
+        }
+
         // POST api/<UsersController>
         [HttpPost]
         [Route("add")]
         public async Task<ActionResult<User>> Post([FromBody] User usuario)
         {
             usuario.FechaAlta = DateTime.Now;
+            usuario.Password = Encryption.EncodePassword(usuario.Password);
             _context.Users.Add(usuario);
             await _context.SaveChangesAsync();
 
@@ -104,56 +113,22 @@ namespace Backend_Repositor.io.Controllers
 
     }
 
-    public class PasswordEncoderDecoder
+    public class Encryption
     {
-        public static (string encryptedPassword, string decryptionKey) EncodePassword(string password)
+        public static string EncodePassword(string password)
         {
-            // Generar una clave aleatoria para el desencriptado
-            byte[] key = new byte[32];
-            using (var rng = new RNGCryptoServiceProvider())
+            SHA256 sha256 = SHA256.Create();
+            ASCIIEncoding encoding = new ASCIIEncoding();
+            byte[] stream = null;
+            StringBuilder sb = new StringBuilder();
+            stream = sha256.ComputeHash(encoding.GetBytes(password));
+
+            for(var i = 0; i < stream.Length; i++)
             {
-                rng.GetBytes(key);
+                sb.AppendFormat("{0:x2}", stream[i]);
             }
-            string decryptionKey = Convert.ToBase64String(key);
 
-            // Codificar la contraseña
-            using (var aes = new AesCryptoServiceProvider())
-            {
-                aes.GenerateIV();
-                aes.Key = key;
-                byte[] encryptedBytes;
-
-                using (var encryptor = aes.CreateEncryptor())
-                {
-                    byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
-                    encryptedBytes = encryptor.TransformFinalBlock(passwordBytes, 0, passwordBytes.Length);
-                }
-
-                string encryptedPassword = Convert.ToBase64String(encryptedBytes);
-                return (encryptedPassword, decryptionKey);
-            }
-        }
-
-        public static string DecodePassword(string encryptedPassword, string decryptionKey)
-        {
-            // Decodificar la cadena base64 del password encriptado y la clave de desencriptado
-            byte[] encryptedBytes = Convert.FromBase64String(encryptedPassword);
-            byte[] key = Convert.FromBase64String(decryptionKey);
-
-            // Desencriptar la contraseña
-            using (var aes = new AesCryptoServiceProvider())
-            {
-                aes.Key = key;
-                byte[] decryptedBytes;
-
-                using (var decryptor = aes.CreateDecryptor())
-                {
-                    decryptedBytes = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
-                }
-
-                string decryptedPassword = Encoding.UTF8.GetString(decryptedBytes);
-                return decryptedPassword;
-            }
+            return sb.ToString();
         }
     }
 }

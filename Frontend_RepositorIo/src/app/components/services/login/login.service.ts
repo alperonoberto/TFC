@@ -12,6 +12,7 @@ export class LoginService {
   public urlUsersPost = BASE_URL + 'users/add';
   public urlUsersPut = BASE_URL + 'users/update';
   public urlUsersDelete = BASE_URL + 'users/delete';
+  public urlUsersEncrypt = BASE_URL + 'users/encrypt';
 
   constructor(private _http: HttpClient) { }
 
@@ -36,6 +37,10 @@ export class LoginService {
 
   public setUserLoggedIn(user) {
     this.user = user;
+  }
+
+  public getPasswordEncrypted(password: string) {
+    return this._http.get(`${this.urlUsersEncrypt}?login=${password}`);
   }
   
 }

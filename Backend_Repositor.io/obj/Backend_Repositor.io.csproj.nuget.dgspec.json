@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[6.0.13, )"
             },
+            "PlantUml.Net": {
+              "target": "Package",
+              "version": "[1.4.80, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"

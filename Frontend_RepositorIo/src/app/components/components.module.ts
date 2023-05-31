@@ -10,8 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -22,6 +23,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { RepositoriosComponent } from './repositorios/repositorios.component';
 import { UserComponent } from './user/user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ContactComponent,
     NotFoundComponent,
     RepositoriosComponent,
-    UserComponent
+    UserComponent,
+    SearchbarComponent,
   ],
   imports: [
     CommonModule,
@@ -47,7 +50,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     ReactiveFormsModule,
     MatGridListModule,
     HttpClientModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
   ],
   exports: [
     ToolbarComponent,
@@ -56,8 +60,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     LoginComponent,
     RegisterComponent,
     ContactComponent,
-    UserComponent
+    UserComponent,
   ],
   providers: [HttpClientModule],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

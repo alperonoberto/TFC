@@ -5,13 +5,7 @@
       <span>Repositor.io</span>
     </div>
     <span class="spacer">
-      <mat-form-field *ngIf="isLoggedIn">
-        <mat-label>Buscar</mat-label>
-        <input type="text" matInput placeholder="Usuarios, repositorios, etc...">
-        <button matSuffix mat-button color="primary" style="text-align: center;">
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
+      <app-searchbar *ngIf="isLoggedIn"></app-searchbar>
     </span>
     <div class="links">
       <a mat-button [routerLink]="'/home'"> <mat-icon>house</mat-icon> Inicio </a>

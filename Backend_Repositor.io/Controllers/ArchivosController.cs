@@ -77,6 +77,14 @@ namespace Backend_Repositor.io.Controllers
             return archivo;
         }
 
+        [HttpGet]
+        [Route("repositorio/{id}")]
+        public async Task<ActionResult<IEnumerable<Archivo>>> GetArchivosByRepo(long id)
+        {
+            var archivos = await _context.Archivos.Where(a => a.RepositorioId == id).ToListAsync();
+            return archivos;
+        }
+
         [HttpPost]
         [Route("add")]
         public async Task<ActionResult<Archivo>> PostArchivo ([FromBody]Archivo archivo)

@@ -39,8 +39,8 @@ export class LoginService {
     this.user = user;
   }
 
-  public getPasswordEncrypted(password: string) {
-    return this._http.get(`${this.urlUsersEncrypt}?login=${password}`);
+  public getPasswordEncrypted(value: string) {
+    return this._http.get(`${this.urlUsersEncrypt}?login=${value}`);
   }
   
 }

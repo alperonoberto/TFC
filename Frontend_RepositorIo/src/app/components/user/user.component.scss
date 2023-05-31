@@ -31,3 +31,14 @@ h1, h3 {
     }
 }
 
+ul {
+    li {
+        list-style: none;
+    }
+}
+
+mat-list-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+

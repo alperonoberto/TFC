@@ -1,12 +1,12 @@
 <div class="container">
     <mat-grid-list cols="4" rowHeight="80vh" gutterSize="1rem">
         <mat-grid-tile colspan="1">
+            <button mat-flat-button color="primary" (click)="isCreandoRepo=true"><mat-icon>library_add</mat-icon> Nuevo repositorio</button>
             <div class="card" *ngFor="let rep of listaRepositorios">
                 <h3>{{rep.nombre}}</h3>
                 <h5>{{rep.descripcion}}</h5>
                 <div class="botonera" style="display: flex; gap: 1rem;">
                     <button mat-flat-button (click)="mostrarArchivos(rep)" color="primary">Mostrar</button>
-                    <button mat-flat-button color="primary">Editar</button>
                     <button mat-flat-button color="warn">Eliminar</button>
                 </div>
             </div>
@@ -16,17 +16,41 @@
                 <mat-card-title>Selecciona un repositorio para ver su contenido</mat-card-title>
             </mat-card-content>
         </mat-card>
+        <mat-card *ngIf="isCreandoRepo" style="margin-top: 5rem;">
+            <mat-card-content>
+                <mat-card-title style="margin-bottom: 1rem;">Nuevo repositorio</mat-card-title>
+                <form [formGroup]="repositoriosForm" (ngSubmit)="onSubmit()">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Título</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Descripción</mat-label>
+                        <textarea matInput ></textarea>
+                    </mat-form-field>
+
+                    <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Seleccionar archivos</button>
+                    <input hidden (change)="onFileSelected($event)" #fileInput type="file" multiple>
+                    <mat-list>
+                        <mat-list-item *ngFor="let file of selectedFiles">{{file.name}}</mat-list-item>
+                    </mat-list>
+                    <button mat-flat-button type="submit">Crear repositorio</button>
+                </form>
+            </mat-card-content>
+        </mat-card>
         <mat-grid-tile colspan="3" *ngIf="repositorioActual !== 0">
             <h1>{{repositorioActualNombre}}</h1>
             <div class="files">
                 <div class="file-card" *ngFor="let file of listaArchivos">
                     <mat-checkbox></mat-checkbox>
                     <mat-icon>library_books</mat-icon>
-                    <span>{{file.nombre}}</span>
+                    <span>{{file.filename}}</span>
                 </div>
             </div>
             <div class="botoneraArchivos">
                 <button mat-flat-button color="primary">Descargar</button>
+                <button mat-flat-button color="accent">Agregar</button>
                 <button mat-flat-button color="warn">Eliminar</button>
             </div>
         </mat-grid-tile>

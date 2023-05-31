@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../services/register/register.service';
 import { LoginService } from '../services/login/login.service';
 import { RepositorioService } from '../services/repositorio/repositorio.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -12,7 +13,8 @@ export class UserComponent implements OnInit {
   constructor(
     private _registerService: RegisterService,
     private _loginService: LoginService,
-    private _repositorioService: RepositorioService
+    private _repositorioService: RepositorioService,
+    private router: Router
   ) {}
 
   public user: any;
@@ -22,13 +24,18 @@ export class UserComponent implements OnInit {
     this.user = this._loginService.user;
     this._repositorioService.getRepositorioByUser(this.user.id).subscribe(
       (res) => {
-        console.log(this.listaRepos);
+        this.listaRepos = [...[res]].flat();
         console.log(res);
-        this.listaRepos = [res];
+        console.log(this.listaRepos);
       },
       (err) => {
         console.error('Error GET repositorios');
       }
     ); 
   }
+
+  openRepo() {
+    this.router.navigate(['repositories'])
+  }
+
 }

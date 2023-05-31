@@ -1,12 +1,7 @@
 ﻿using Backend_Repositor.io.Interfaces;
-using Microsoft.AspNetCore.Hosting;  
-using Microsoft.AspNetCore.Http;  
-using System;  
-using System.Collections.Generic;  
-using System.IO;  
-using System.IO.Compression;  
-using System.Linq;  
-using System.Threading.Tasks; 
+using Microsoft.AspNetCore.Mvc;
+using System.IO.Compression;
+
 
 namespace Backend_Repositor.io.Services
 {
@@ -24,17 +19,20 @@ namespace Backend_Repositor.io.Services
         #endregion
 
         #region Upload File  
-        public void UploadFile(List<IFormFile> files, string subDirectory)
+        public void UploadFiles(List<IFormFile> files, string subDirectory)
         {
             subDirectory = subDirectory ?? string.Empty;
-            var target = Path.Combine(_hostingEnvironment.ContentRootPath, subDirectory);
+            var directory = Path.Combine(_hostingEnvironment.WebRootPath, subDirectory);
 
-            Directory.CreateDirectory(target);
-
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+            
             files.ForEach(async file =>
             {
                 if (file.Length <= 0) return;
-                var filePath = Path.Combine(target, file.FileName);
+                var filePath = Path.Combine(directory, file.FileName);
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);

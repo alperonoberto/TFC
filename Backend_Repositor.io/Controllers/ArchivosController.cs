@@ -20,14 +20,18 @@ namespace Backend_Repositor.io.Controllers
         }
 
         #region Upload File
-        [HttpPost("upload")]
-        public IActionResult Upload([Required] List<IFormFile> formFiles, [Required] string subDirectory)
+        [HttpPost("upload/{usuario}/{repoName}")]
+        public IActionResult Upload([FromRoute] string usuario, [FromRoute] string repoName)
         {
             try
             {
-                _fileService.UploadFile(formFiles, subDirectory);
+                var files = Request.Form.Files.ToList();
+                var username = _context.Users.Where(u => u.Id == Convert.ToInt32(usuario)).FirstOrDefault().Username;
+                var directory = "Repositorios/" + username + "/" + repoName;
 
-                return Ok(new { formFiles.Count, Size = _fileService.SizeConverter(formFiles.Sum(f => f.Length)) });
+                _fileService.UploadFiles(files, directory);
+
+                return Ok(new { files.Count, Size = _fileService.SizeConverter(files.Sum(f => f.Length)) });
             }
             catch (Exception ex)
             {

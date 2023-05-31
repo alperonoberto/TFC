@@ -1,7 +1,10 @@
 ﻿using Backend_Repositor.io.Data;
+using Backend_Repositor.io.Interfaces;
 using Backend_Repositor.io.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
+using static System.Net.WebRequestMethods;
 
 namespace Backend_Repositor.io.Controllers
 {
@@ -9,10 +12,17 @@ namespace Backend_Repositor.io.Controllers
     [ApiController]
     public class RepositoriosController : ControllerBase
     {
+        private readonly IFileService _fileService;
+        private readonly Microsoft.AspNetCore.Hosting.IWebHostEnvironment _hostingEnvironment;
         private readonly AppDbContext _context;
 
-        public RepositoriosController(AppDbContext context)
+        public RepositoriosController(
+            AppDbContext context,
+            Microsoft.AspNetCore.Hosting.IWebHostEnvironment hostingEnvironment,
+            IFileService fileService)
         {
+            _fileService = fileService;
+            _hostingEnvironment = hostingEnvironment;
             _context = context;
         }
 
@@ -59,7 +69,43 @@ namespace Backend_Repositor.io.Controllers
         public async Task<ActionResult<Repositorio>> Post([FromBody] Repositorio repositorio)
         {
             repositorio.FechaMod = DateTime.Now;
+
+            // Comprobar si existe la carpeta de usuario en la carpeta "repos"
+            string currentUser = _context.Users.Where(u => u.Id == repositorio.UsuarioId).SingleOrDefault()?.Username;
+            string reposFolderPath = Path.Combine(_hostingEnvironment.WebRootPath, "Repositorios");
+            string currentUserFolderPath = Path.Combine(reposFolderPath, currentUser ?? "default");
+
+            if (!Directory.Exists(currentUserFolderPath))
+            {
+                // La carpeta de usuario no existe, se crea
+                Directory.CreateDirectory(currentUserFolderPath);
+            }
+            else
+            {
+                // La carpeta de usuario ya existe, se comprueba si existe el repositorio
+                string repositorioFolderPath = Path.Combine(currentUserFolderPath, repositorio.Nombre);
+
+                if (Directory.Exists(repositorioFolderPath))
+                {
+                    // El repositorio ya existe
+                    //_fileService.UploadFiles(Request.Form.Files.ToList(), repositorioFolderPath);
+
+                    return Ok("El repositorio ya existe");
+                }
+                else
+                {
+                    // El repositorio no existe, se crea
+                    Directory.CreateDirectory(repositorioFolderPath);
+
+                    _context.Repositorios.Add(repositorio);
+                    await _context.SaveChangesAsync();
+
+                    return Ok("Repositorio creado: " + reposFolderPath);
+                }
+            }
+
             _context.Repositorios.Add(repositorio);
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetRepositorio), new { id = repositorio.Id }, repositorio);
@@ -103,10 +149,18 @@ namespace Backend_Repositor.io.Controllers
         public async Task<IActionResult> Delete([FromRoute] long id)
         {
             var repositorio = await _context.Repositorios.FindAsync(id);
+            var user = await _context.Users.Where(u => u.Id == repositorio.Id).FirstOrDefaultAsync();
 
             if (repositorio == null)
             {
                 return NotFound();
+            }
+
+            var path = _hostingEnvironment.WebRootPath + "\\Repositorios\\" + user.Username + "\\" + repositorio.Nombre;
+
+            if(Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
             }
 
             _context.Repositorios.Remove(repositorio);

@@ -7,7 +7,7 @@
                 <h5>{{rep.descripcion}}</h5>
                 <div class="botonera" style="display: flex; gap: 1rem;">
                     <button mat-flat-button (click)="mostrarArchivos(rep)" color="primary">Mostrar</button>
-                    <button mat-flat-button color="warn">Eliminar</button>
+                    <button mat-flat-button color="warn" (click)="onDelete(rep)">Eliminar</button>
                 </div>
             </div>
         </mat-grid-tile>
@@ -22,12 +22,12 @@
                 <form [formGroup]="repositoriosForm" (ngSubmit)="onSubmit()">
                     <mat-form-field appearance="outline">
                         <mat-label>Título</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="titulo">
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
                         <mat-label>Descripción</mat-label>
-                        <textarea matInput ></textarea>
+                        <textarea matInput formControlName="descripcion"></textarea>
                     </mat-form-field>
 
                     <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Seleccionar archivos</button>

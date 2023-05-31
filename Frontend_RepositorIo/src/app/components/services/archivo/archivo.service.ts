@@ -7,7 +7,8 @@ import { BASE_URL } from 'src/app/environment/environment.constants';
 })
 export class ArchivoService {
 
-  private urlGetArchivosByRepo = BASE_URL + 'archivos/repositorio/'
+  private urlGetArchivosByRepo = BASE_URL + 'archivos/repositorio/';
+  private urlPostArchivos = BASE_URL + 'archivos/upload/';
 
   constructor(
     private http: HttpClient
@@ -15,6 +16,10 @@ export class ArchivoService {
 
   public getArchivosByRepo(id: number) {
     return this.http.get(this.urlGetArchivosByRepo + id);
+  }
+
+  public postArchivos(files: FormData, user, repositorio) {
+    return this.http.post(`${this.urlPostArchivos}${user}/${repositorio}`, files)
   }
 
 }

@@ -7,6 +7,14 @@ import { BASE_URL } from 'src/app/environment/environment.constants';
 })
 export class RepositorioService {
 
+  // EJEMPLO POSTEO DE REPOSITORIO
+  // {
+  //   "nombre": "repositorio cool",
+  //   "descripcion": "prueba de crear carpetaas",
+  //   "fechaMod": "2023-05-31T18:48:39.037Z",
+  //   "usuarioId": 1
+  // }
+
   private urlGetRepositorioByUser = BASE_URL + 'repositorios/user/';
   private urlGetRepositorios = BASE_URL + 'repositorios';
   private urlGetRepositorioById = BASE_URL + 'repositorios/';
@@ -20,5 +28,13 @@ export class RepositorioService {
 
   public getRepositorioByUser(userId: number) {
     return this._http.get(this.urlGetRepositorioByUser + userId);
-  } 
+  }
+
+  public postRepositorio(repositorio: any) {
+    return this._http.post(this.urlPostRepositorio, repositorio);
+  }
+
+  public deleteRepositorio(id) {
+    return this._http.delete(this.urlDeleteRepositorioById + id);
+  }
 }

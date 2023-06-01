@@ -1,15 +1,19 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
+      "Id": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\repositorio_cool\\dummy.pdf",
+      "PackagePath": "staticwebassets\\Repositorios\\admin\\repositorio_cool\\dummy.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
       "PackagePath": "staticwebassets\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
+      "Id": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
       "PackagePath": "staticwebassets\\Repositorios\\user\\repo1\\709285.jpg"
     },
     {
-      "Id": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
+      "Id": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
       "PackagePath": "staticwebassets\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png"
     },
     {

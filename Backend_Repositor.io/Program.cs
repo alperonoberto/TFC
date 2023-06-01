@@ -34,13 +34,6 @@ using(var scope = app.Services.CreateScope())
     appDbContext.Database.Migrate();
 }
 
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseCors("AllowAngularOrigins");
 
 app.UseHttpsRedirection();

@@ -201,3 +201,5 @@ C:\Users\ALUMNOS_FP\Desktop\REPOSITOR.IO\TFC\Backend_Repositor.io\obj\Debug\net6
 C:\Users\ALUMNOS_FP\Desktop\REPOSITOR.IO\TFC\Backend_Repositor.io\obj\Debug\net6.0\ref\Backend_Repositor.io.dll
 C:\Users\User\Desktop\PROGRAMACIÓN\ANGULAR\REPOSITOR.IO\Backend_Repositor.io\bin\Debug\net6.0\PlantUml.Net.dll
 C:\Users\User\Desktop\PROGRAMACIÓN\ANGULAR\REPOSITOR.IO\Backend_Repositor.io\bin\Debug\net6.0\Backend_Repositor.io.staticwebassets.runtime.json
+C:\Users\Usuario\Desktop\TFC\Backend_Repositor.io\bin\Debug\net6.0\Backend_Repositor.io.staticwebassets.runtime.json
+C:\Users\Usuario\Desktop\TFC\Backend_Repositor.io\bin\Debug\net6.0\PlantUml.Net.dll

@@ -13,10 +13,12 @@ namespace Backend_Repositor.io.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IFileService _fileService;
-        public ArchivosController(AppDbContext context, IFileService fileService)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public ArchivosController(AppDbContext context, IFileService fileService, IWebHostEnvironment hostingEnvironment)
         {
             _context = context;
             _fileService = fileService;
+            _hostingEnvironment = hostingEnvironment;
         }
 
         #region Upload File
@@ -26,19 +28,41 @@ namespace Backend_Repositor.io.Controllers
             try
             {
                 var files = Request.Form.Files.ToList();
-                var username = _context.Users.Where(u => u.Id == Convert.ToInt32(usuario)).FirstOrDefault().Username;
-                var directory = "Repositorios/" + username + "/" + repoName;
+                var repoBien = repoName.Replace("_", " ");
+                var username = _context.Users.Where(u => u.Id == Convert.ToInt32(usuario)).First();
+                var directory = "Repositorios\\" + username.Username + "\\" + repoName;
+                var fullDirectory = Path.Combine(_hostingEnvironment.WebRootPath, directory);
+                Repositorio repositorio = _context.Repositorios.Where(r => r.Nombre == repoBien).FirstOrDefault();
+
+                if (repositorio == null)
+                {
+                    return BadRequest("El repositorio no existe");
+                }
+
+                files.ForEach(f =>
+                {
+                    var dbFile = new Archivo();
+
+                    dbFile.Filename = f.FileName;
+                    dbFile.Filepath = Path.Combine(fullDirectory, f.FileName);
+                    dbFile.FechaSubida = DateTime.Now;
+                    dbFile.RepositorioId = repositorio.Id;
+
+                    _context.Archivos.Add(dbFile);
+                    _context.SaveChanges();
+                });
+
 
                 _fileService.UploadFiles(files, directory);
 
-                return Ok(new { files.Count, Size = _fileService.SizeConverter(files.Sum(f => f.Length)) });
+                return Ok($"Files: {files.Count} Size: {_fileService.SizeConverter(files.Sum(f => f.Length))}");
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex + " Error al subir archivos");
             }
         }
-#endregion
+        #endregion
 
         #region Download File  
         [HttpGet("download")]
@@ -91,7 +115,7 @@ namespace Backend_Repositor.io.Controllers
 
         [HttpPost]
         [Route("add")]
-        public async Task<ActionResult<Archivo>> PostArchivo ([FromBody]Archivo archivo)
+        public async Task<ActionResult<Archivo>> PostArchivo([FromBody] Archivo archivo)
         {
             archivo.FechaSubida = DateTime.Now;
             _context.Archivos.Add(archivo);

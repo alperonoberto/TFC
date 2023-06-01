@@ -48,7 +48,7 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<IEnumerable<Repositorio>>> GetRepositoriosByUser([FromRoute]long userId)
+        public async Task<ActionResult<IEnumerable<Repositorio>>> GetRepositoriosByUser([FromRoute] long userId)
         {
             var repositorios = new List<Repositorio>();
             repositorios = await _context.Repositorios
@@ -74,41 +74,30 @@ namespace Backend_Repositor.io.Controllers
             string currentUser = _context.Users.Where(u => u.Id == repositorio.UsuarioId).SingleOrDefault()?.Username;
             string reposFolderPath = Path.Combine(_hostingEnvironment.WebRootPath, "Repositorios");
             string currentUserFolderPath = Path.Combine(reposFolderPath, currentUser ?? "default");
+            string repositorioFolderPath = Path.Combine(currentUserFolderPath, repositorio.Nombre.Replace("", "_"));
 
-            if (!Directory.Exists(currentUserFolderPath))
+            if (!Directory.Exists(repositorioFolderPath))
             {
                 // La carpeta de usuario no existe, se crea
-                Directory.CreateDirectory(currentUserFolderPath);
+                Directory.CreateDirectory(repositorioFolderPath);
+                
+                _context.Repositorios.Add(repositorio);
+                await _context.SaveChangesAsync();
+
+                return Ok("Repositorio creado: " + repositorioFolderPath);
             }
             else
             {
-                // La carpeta de usuario ya existe, se comprueba si existe el repositorio
-                string repositorioFolderPath = Path.Combine(currentUserFolderPath, repositorio.Nombre);
-
-                if (Directory.Exists(repositorioFolderPath))
+                if(_context.Repositorios.Where(r => r.Nombre == repositorio.Nombre) != null) 
                 {
-                    // El repositorio ya existe
-                    //_fileService.UploadFiles(Request.Form.Files.ToList(), repositorioFolderPath);
-
-                    return Ok("El repositorio ya existe");
+                    return Ok("Repositorio ya existe: " + repositorioFolderPath);
                 }
-                else
-                {
-                    // El repositorio no existe, se crea
-                    Directory.CreateDirectory(repositorioFolderPath);
 
-                    _context.Repositorios.Add(repositorio);
-                    await _context.SaveChangesAsync();
+                _context.Repositorios.Add(repositorio);
+                await _context.SaveChangesAsync();
 
-                    return Ok("Repositorio creado: " + reposFolderPath);
-                }
+                return Ok("Repositorio ya existe: " + repositorioFolderPath);
             }
-
-            _context.Repositorios.Add(repositorio);
-
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetRepositorio), new { id = repositorio.Id }, repositorio);
         }
 
         // PUT api/<UsersController>/5
@@ -158,7 +147,7 @@ namespace Backend_Repositor.io.Controllers
 
             var path = _hostingEnvironment.WebRootPath + "\\Repositorios\\" + user.Username + "\\" + repositorio.Nombre;
 
-            if(Directory.Exists(path))
+            if (Directory.Exists(path))
             {
                 Directory.Delete(path, true);
             }

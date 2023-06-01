@@ -1,11 +1,11 @@
 ﻿<Project>
   <ItemGroup>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Repositorios\admin\repositorio_cool\dummy.pdf))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Repositorios\admin\repo_xaxi\c7e72034661c5b7eb601c31c789ab412.png))">
       <SourceType>Package</SourceType>
       <SourceId>Backend_Repositor.io</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Backend_Repositor.io</BasePath>
-      <RelativePath>Repositorios/admin/repositorio_cool/dummy.pdf</RelativePath>
+      <RelativePath>Repositorios/admin/repo_xaxi/c7e72034661c5b7eb601c31c789ab412.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -14,7 +14,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Repositorios\admin\repositorio_cool\dummy.pdf))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Repositorios\admin\repo_xaxi\c7e72034661c5b7eb601c31c789ab412.png))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\Repositorios\user\repo1\2977571-band-death-metal___mixed-wallpapers.jpg))">
       <SourceType>Package</SourceType>

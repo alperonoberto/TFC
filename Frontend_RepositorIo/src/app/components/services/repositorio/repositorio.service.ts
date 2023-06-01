@@ -26,8 +26,12 @@ export class RepositorioService {
     protected _http: HttpClient
   ) { }
 
-  public getRepositorioByUser(userId: number) {
+  public getRepositoriosByUser(userId: number) {
     return this._http.get(this.urlGetRepositorioByUser + userId);
+  }
+
+  public getRepositorioById(repoId: number) {
+    return this._http.get(this.urlGetRepositorioById + repoId);
   }
 
   public postRepositorio(repositorio: any) {

@@ -74,7 +74,7 @@ namespace Backend_Repositor.io.Controllers
             string currentUser = _context.Users.Where(u => u.Id == repositorio.UsuarioId).SingleOrDefault()?.Username;
             string reposFolderPath = Path.Combine(_hostingEnvironment.WebRootPath, "Repositorios");
             string currentUserFolderPath = Path.Combine(reposFolderPath, currentUser ?? "default");
-            string repositorioFolderPath = Path.Combine(currentUserFolderPath, repositorio.Nombre.Replace("", "_"));
+            string repositorioFolderPath = Path.Combine(currentUserFolderPath, repositorio.Nombre.Replace(" ", "_"));
 
             if (!Directory.Exists(repositorioFolderPath))
             {

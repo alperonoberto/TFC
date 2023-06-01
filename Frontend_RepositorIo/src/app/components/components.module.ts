@@ -36,7 +36,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     NotFoundComponent,
     RepositoriosComponent,
     UserComponent,
-    SearchbarComponent,
+    SearchbarComponent
   ],
   imports: [
     CommonModule,
@@ -62,6 +62,6 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     ContactComponent,
     UserComponent,
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule]
 })
 export class ComponentsModule {}

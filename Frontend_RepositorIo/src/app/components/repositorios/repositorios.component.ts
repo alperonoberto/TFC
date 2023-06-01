@@ -31,9 +31,11 @@ export class RepositoriosComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
+    console.log(this.selectedFiles)
+    console.log(this.listaArchivos)
     this._loginService.getUserLoggedIn().subscribe((res) => {
       this.userLoggedIn = res;
-      this._repoService.getRepositorioByUser(res['id']).subscribe((res) => {
+      this._repoService.getRepositoriosByUser(res['id']).subscribe((res) => {
         this.listaRepositorios = [...[res]].flat();
       });
     });
@@ -46,43 +48,72 @@ export class RepositoriosComponent implements OnInit {
 
     this._archivoService.getArchivosByRepo(repositorio.id).subscribe((res) => {
       this.listaArchivos = [...[res]].flat();
-      console.log(this.listaArchivos);
     });
   }
 
   public onSubmit() {
     let repositorio = {
-      nombre: this.repositoriosForm.get('titulo').value,
+      nombre: this.repositoriosForm.get('titulo').value.replaceAll(' ', '_'),
       descripcion: this.repositoriosForm.get('descripcion').value,
       usuarioId: this.userLoggedIn.id,
     };
     console.log(repositorio);
     this._repoService.postRepositorio(repositorio).subscribe((res) => {
       console.log(res);
+
+      let form = new FormData();
+      this.listaArchivos.forEach((file) => {
+        form.append('file', file);
+      });
+
+      this._archivoService
+        .postArchivos(form, repositorio.usuarioId, repositorio.nombre)
+        .subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            console.error(err);
+          }
+        );
     });
 
-    let form = new FormData();
-    this.listaArchivos.forEach((file) => {
-      form.append('file', file);
-    });
-
-    this._archivoService
-      .postArchivos(form, repositorio.usuarioId, repositorio.nombre)
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
-    
     this.isCreandoRepo = false;
   }
 
   onFileSelected(event: any): void {
     this.selectedFiles = [...event.target.files];
     console.table(this.selectedFiles);
+  }
+
+  uploadFiles(event: any): void {
+    this.selectedFiles = [...event.target.files];
+
+    let form = new FormData();
+    this.selectedFiles.forEach((file) => {
+      form.append('file', file);
+    });
+
+    this._repoService.getRepositorioById(this.repositorioActual).subscribe(
+      (res) => {
+        console.log(res["usuarioId"]+"/"+ res["nombre"]);
+        let repositorio = res;
+
+        this._archivoService
+          .postArchivos(form, repositorio["usuarioId"], repositorio["nombre"])
+          .subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (err) => {
+              console.error(err);
+            }
+          );
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
   }
 
   onDelete(repo) {

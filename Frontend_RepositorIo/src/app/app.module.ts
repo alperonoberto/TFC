@@ -5,19 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { WarningModalComponent } from './shared/components/warningModal/warning-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WarningModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [WarningModalComponent]
 })
 export class AppModule { }

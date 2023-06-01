@@ -32,7 +32,7 @@ namespace Backend_Repositor.io.Controllers
                 var username = _context.Users.Where(u => u.Id == Convert.ToInt32(usuario)).First();
                 var directory = "Repositorios\\" + username.Username + "\\" + repoName;
                 var fullDirectory = Path.Combine(_hostingEnvironment.WebRootPath, directory);
-                Repositorio repositorio = _context.Repositorios.Where(r => r.Nombre == repoBien).FirstOrDefault();
+                Repositorio repositorio = _context.Repositorios.Where(r => r.Nombre == repoName).FirstOrDefault();
 
                 if (repositorio == null)
                 {

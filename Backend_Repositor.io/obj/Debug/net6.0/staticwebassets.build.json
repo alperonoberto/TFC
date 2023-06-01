@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mb9gT3NqLWGEM0SndoiqpbSzmlkhM+5f4nfLBFNOej8=",
+  "Hash": "I0FVHuFT61sKfBsJBw1A7wAL2V+rbDmKYQyYnaQrKb8=",
   "Source": "Backend_Repositor.io",
   "BasePath": "_content/Backend_Repositor.io",
   "Mode": "Default",
@@ -10,19 +10,19 @@
     {
       "Name": "Backend_Repositor.io\\wwwroot",
       "Source": "Backend_Repositor.io",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\repositorio_cool\\dummy.pdf",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\repo_xaxi\\c7e72034661c5b7eb601c31c789ab412.png",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/repositorio_cool/dummy.pdf",
+      "RelativePath": "Repositorios/admin/repo_xaxi/c7e72034661c5b7eb601c31c789ab412.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,13 +31,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\repositorio_cool\\dummy.pdf"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\repo_xaxi\\c7e72034661c5b7eb601c31c789ab412.png"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repo1/2977571-band-death-metal___mixed-wallpapers.jpg",
       "AssetKind": "All",
@@ -51,10 +51,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repo1/709285.jpg",
       "AssetKind": "All",
@@ -68,10 +68,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\user\\repo1\\709285.jpg"
     },
     {
-      "Identity": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repositorioPrueba/c7e72034661c5b7eb601c31c789ab412.png",
       "AssetKind": "All",

@@ -1,7 +1,8 @@
 <div class="container">
     <mat-grid-list cols="4" rowHeight="80vh" gutterSize="1rem">
         <mat-grid-tile colspan="1">
-            <button mat-flat-button color="primary" (click)="isCreandoRepo=true"><mat-icon>library_add</mat-icon> Nuevo repositorio</button>
+            <button mat-flat-button color="primary" (click)="isCreandoRepo=true"><mat-icon>library_add</mat-icon> Nuevo
+                repositorio</button>
             <div class="card" *ngFor="let rep of listaRepositorios">
                 <h3>{{rep.nombre}}</h3>
                 <h5>{{rep.descripcion}}</h5>
@@ -30,7 +31,8 @@
                         <textarea matInput formControlName="descripcion"></textarea>
                     </mat-form-field>
 
-                    <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Seleccionar archivos</button>
+                    <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Seleccionar
+                        archivos</button>
                     <input hidden (change)="onFileSelected($event)" #fileInput type="file" multiple>
                     <mat-list>
                         <mat-list-item *ngFor="let file of selectedFiles">{{file.name}}</mat-list-item>
@@ -50,8 +52,9 @@
             </div>
             <div class="botoneraArchivos">
                 <button mat-flat-button color="primary">Descargar</button>
-                <button mat-flat-button color="accent">Agregar</button>
-                <button mat-flat-button color="warn">Eliminar</button>
+                <button type="button" mat-raised-button (click)="fileInput.click()" color="accent">Agregar</button>
+                <input hidden (change)="uploadFiles($event)" #fileInput type="file" multiple>
+                <button mat-flat-button color="warn" (click)="onDelete()">Eliminar</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

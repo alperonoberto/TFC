@@ -22,7 +22,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._loginService.user;
-    this._repositorioService.getRepositorioByUser(this.user.id).subscribe(
+    this._repositorioService.getRepositoriosByUser(this.user.id).subscribe(
       (res) => {
         this.listaRepos = [...[res]].flat();
         console.log(res);

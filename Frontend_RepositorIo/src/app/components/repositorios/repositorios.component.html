@@ -4,7 +4,7 @@
             <button mat-flat-button color="primary" (click)="isCreandoRepo=true"><mat-icon>library_add</mat-icon> Nuevo
                 repositorio</button>
             <div class="card" *ngFor="let rep of listaRepositorios">
-                <h3>{{rep.nombre}}</h3>
+                <h3>{{rep.nombre.replaceAll('_', ' ')}}</h3>
                 <h5>{{rep.descripcion}}</h5>
                 <div class="botonera" style="display: flex; gap: 1rem;">
                     <button mat-flat-button (click)="mostrarArchivos(rep)" color="primary">Mostrar</button>
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </mat-grid-tile>
-        <mat-card *ngIf="repositorioActual === 0">
+        <mat-card *ngIf="repositorioActual === 0 || isCreandoRepo">
             <mat-card-content>
                 <mat-card-title>Selecciona un repositorio para ver su contenido</mat-card-title>
             </mat-card-content>
@@ -20,7 +20,7 @@
         <mat-card *ngIf="isCreandoRepo" style="margin-top: 5rem;">
             <mat-card-content>
                 <mat-card-title style="margin-bottom: 1rem;">Nuevo repositorio</mat-card-title>
-                <form [formGroup]="repositoriosForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="repositoriosForm" (ngSubmit)="onSubmit($event)">
                     <mat-form-field appearance="outline">
                         <mat-label>Título</mat-label>
                         <input matInput formControlName="titulo">
@@ -41,20 +41,21 @@
                 </form>
             </mat-card-content>
         </mat-card>
-        <mat-grid-tile colspan="3" *ngIf="repositorioActual !== 0">
-            <h1>{{repositorioActualNombre}}</h1>
+        <mat-grid-tile colspan="3" *ngIf="!isCreandoRepo && repositorioActual !== 0">
+            <h1>{{repositorioActualNombre.replaceAll("_", " ")}}</h1>
             <div class="files">
                 <div class="file-card" *ngFor="let file of listaArchivos">
-                    <mat-checkbox></mat-checkbox>
-                    <mat-icon>library_books</mat-icon>
+                    <mat-checkbox (change)="addSelectedFile($event, file)"></mat-checkbox>
+                    <mat-icon>{{file.filename.split(".")[1].toLowerCase() == 'jpg' || file.filename.split(".")[1].toLowerCase() == 'jpeg' || file.filename.split(".")[1].toLowerCase() == 'png' ? 'insert_photo' : 'library_books'}}</mat-icon>
                     <span>{{file.filename}}</span>
+                    <span style="margin-top: 1rem;"><strong>{{file.fileSize}}</strong></span>
                 </div>
             </div>
             <div class="botoneraArchivos">
                 <button mat-flat-button color="primary">Descargar</button>
                 <button type="button" mat-raised-button (click)="fileInput.click()" color="accent">Agregar</button>
                 <input hidden (change)="uploadFiles($event)" #fileInput type="file" multiple>
-                <button mat-flat-button color="warn" (click)="onDelete()">Eliminar</button>
+                <button mat-flat-button color="warn" (click)="onDeleteFiles()">Eliminar</button>
             </div>
         </mat-grid-tile>
     </mat-grid-list>

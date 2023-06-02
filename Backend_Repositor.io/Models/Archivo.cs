@@ -5,6 +5,7 @@
         public long Id { get; set; }
         public string Filename { get; set; }
         public string? Filepath { get; set; }
+        public string FileSize { get; set; }
         public DateTime? FechaSubida { get; set; }
 
         public long RepositorioId { get; set; }

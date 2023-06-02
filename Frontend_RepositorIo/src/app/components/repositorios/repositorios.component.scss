@@ -34,12 +34,26 @@
 .file-card {
   background-color: whitesmoke;
   display: flex;
+  flex-direction: column;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   aspect-ratio: 1;
   width: 10rem;
   position: relative;
+  padding-top: 3rem;
+  flex-wrap: wrap;
+  
+  span {
+    inline-size: 150px;
+    overflow-wrap: break-word;
+  text-align: center;
+  }
+
+  mat-icon {
+    position: absolute;
+    top: 3rem;
+  }
 
   mat-checkbox {
     position: absolute;

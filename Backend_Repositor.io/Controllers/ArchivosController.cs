@@ -45,6 +45,7 @@ namespace Backend_Repositor.io.Controllers
 
                     dbFile.Filename = f.FileName;
                     dbFile.Filepath = Path.Combine(fullDirectory, f.FileName);
+                    dbFile.FileSize = _fileService.SizeConverter(f.Length);
                     dbFile.FechaSubida = DateTime.Now;
                     dbFile.RepositorioId = repositorio.Id;
 
@@ -160,11 +161,22 @@ namespace Backend_Repositor.io.Controllers
         public async Task<IActionResult> Delete([FromRoute] long id)
         {
             var archivo = await _context.Archivos.FindAsync(id);
+            var repositorio = await _context.Repositorios.FindAsync(archivo.RepositorioId);
+            var user = await _context.Users.Where(u => u.Id == repositorio.UsuarioId).FirstOrDefaultAsync();
 
             if (archivo == null)
             {
                 return NotFound();
             }
+
+            var path1 = Path.Combine(_hostingEnvironment.WebRootPath, "Repositorios");
+            var path2 = Path.Combine(path1, user.Username);
+            var path3 = Path.Combine(path2, repositorio.Nombre);
+            var path4 = Path.Combine(path3, archivo.Filename);
+
+            System.IO.File.Delete(path4);
+
+            //DeleteDirectory(path4);
 
             _context.Archivos.Remove(archivo);
             await _context.SaveChangesAsync();
@@ -172,5 +184,23 @@ namespace Backend_Repositor.io.Controllers
             return Ok("Archivo borrado con exito");
         }
         #endregion
+
+        public static void DeleteDirectory(string target_dir) 
+        { 
+            string[] files = Directory.GetFiles(target_dir); 
+            string[] dirs = Directory.GetDirectories(target_dir); 
+            foreach (string file in files) 
+            {
+                System.IO.File.SetAttributes(file, FileAttributes.Normal);
+                System.IO.File.Delete(file);
+            } 
+            
+            foreach (string dir in dirs) 
+            { 
+                DeleteDirectory(dir); 
+            }
+            
+            Directory.Delete(target_dir, false); 
+        }
     }
 }

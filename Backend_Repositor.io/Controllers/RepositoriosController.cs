@@ -135,21 +135,23 @@ namespace Backend_Repositor.io.Controllers
         // DELETE api/<UsersController>/5
         [HttpDelete]
         [Route("delete/{id}")]
-        public async Task<IActionResult> Delete([FromRoute] long id)
+        public async Task<ActionResult> Delete([FromRoute] long id)
         {
             var repositorio = await _context.Repositorios.FindAsync(id);
-            var user = await _context.Users.Where(u => u.Id == repositorio.Id).FirstOrDefaultAsync();
+            var user = await _context.Users.Where(u => u.Id == repositorio.UsuarioId).FirstOrDefaultAsync();
 
             if (repositorio == null)
             {
                 return NotFound();
             }
 
-            var path = _hostingEnvironment.WebRootPath + "\\Repositorios\\" + user.Username + "\\" + repositorio.Nombre;
+            var path1 = Path.Combine(_hostingEnvironment.WebRootPath, "Repositorios");
+            var path2 = Path.Combine(path1, user.Username);
+            var path3 = Path.Combine(path2, repositorio.Nombre);
 
-            if (Directory.Exists(path))
+            if (Directory.Exists(path3))
             {
-                Directory.Delete(path, true);
+                Directory.Delete(path3, true);
             }
 
             _context.Repositorios.Remove(repositorio);

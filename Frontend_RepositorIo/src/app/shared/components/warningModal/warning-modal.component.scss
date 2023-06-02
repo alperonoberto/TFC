@@ -1,3 +1,12 @@
-mat-dialog-container {
-    padding: 0px !important;
+
+mat-card {
+    padding: 4rem;
+    text-align: center;
+}
+
+[mat-dialog-actions] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }

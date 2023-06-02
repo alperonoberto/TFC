@@ -1,12 +1,20 @@
 <mat-card fxLayoutGap>
 
-    <p mat-dialog-title>{{data.title}}</p>
+    <h1 mat-dialog-title><span style="color: red">Borrando</span>{{data.title}}</h1>
 
-    <p display-2>{{data.message}}</p>
+    <h3 display-2>{{data.message}}</h3>
+
+    <div *ngIf="data.files">
+        <ul>
+            <li *ngFor="let file of data.files">
+                <span>{{file}}</span>
+            </li>
+        </ul>
+    </div>
 
 
     <div mat-dialog-actions>
-        <button mat-button (click)="onDismiss()">No</button>
-        <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
+        <button mat-button (click)="onDismiss()">Cancelar</button>
+        <button mat-raised-button color="warn" (click)="onConfirm()">Borrar</button>
     </div>
 </mat-card>

@@ -3,18 +3,18 @@
     <mat-card-subtitle>Responderemos a la mayor brevedad posible</mat-card-subtitle>
     <mat-card-content>
         <img mat-card-image src="../../../assets/contact.jpg" alt="contact">
-        <form (ngSubmit)="submit()">
+        <form (ngSubmit)="submit()" [formGroup]="contactForm">
             <mat-form-field>
                 <mat-label>Email</mat-label>
-                <input type="email" matInput>
+                <input type="email" matInput formControlName="autor">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Asunto</mat-label>
-                <input type="text" matInput>
+                <input type="text" matInput formControlName="asunto">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Descripción</mat-label>
-                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10"></textarea>
+                <textarea matInput cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="10" formControlName="descripcion"></textarea>
             </mat-form-field>
             <button mat-flat-button color="primary">Enviar</button>
         </form>

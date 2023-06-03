@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -24,6 +25,7 @@ import { RepositoriosComponent } from './repositorios/repositorios.component';
 import { UserComponent } from './user/user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { UserPublicComponent } from './userPublic/user-public.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     NotFoundComponent,
     RepositoriosComponent,
     UserComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    UserPublicComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +55,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     HttpClientModule,
     MatCheckboxModule,
     MatListModule,
+    MatAutocompleteModule,
   ],
   exports: [
     ToolbarComponent,
@@ -62,6 +66,6 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     ContactComponent,
     UserComponent,
   ],
-  providers: [HttpClientModule]
+  providers: [HttpClientModule],
 })
 export class ComponentsModule {}

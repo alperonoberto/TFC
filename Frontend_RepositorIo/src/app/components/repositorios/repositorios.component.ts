@@ -135,7 +135,7 @@ export class RepositoriosComponent implements OnInit {
       if (res) {
         this._repoService.deleteRepositorio(repo.id).subscribe(
           (res) => {
-            window.location.reload();
+            this.mostrarRepositorios(this.userLoggedIn);
             console.log(res);
           },
           (err) => {

@@ -1,7 +1,14 @@
-<mat-form-field>
-    <mat-label>Buscar</mat-label>
-    <input type="text" matInput placeholder="Usuarios, repositorios, etc...">
-    <button matSuffix mat-button color="primary" style="text-align: center;">
-        <mat-icon>search</mat-icon>
-    </button>
-</mat-form-field>
+<form>
+    <mat-form-field>
+        <mat-label>Buscar</mat-label>
+        <input type="text" matInput placeholder="Usuarios, repositorios, etc..." [formControl]="searchbar" [matAutocomplete]="auto">
+        <button matSuffix mat-button color="primary" style="text-align: center;">
+            <mat-icon>search</mat-icon>
+        </button>
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+                {{user}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

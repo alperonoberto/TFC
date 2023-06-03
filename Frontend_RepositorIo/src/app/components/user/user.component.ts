@@ -25,8 +25,6 @@ export class UserComponent implements OnInit {
     this._repositorioService.getRepositoriosByUser(this.user.id).subscribe(
       (res) => {
         this.listaRepos = [...[res]].flat();
-        console.log(res);
-        console.log(this.listaRepos);
       },
       (err) => {
         console.error('Error GET repositorios');

@@ -66,12 +66,13 @@ namespace Backend_Repositor.io.Controllers
         #endregion
 
         #region Download File  
-        [HttpGet("download")]
-        public IActionResult Download([Required] string subDirectory)
+        [HttpGet("download/{usuario}/{repoName}/{fileId}")]
+        public IActionResult Download([FromRoute] string usuario, [FromRoute] string repoName, [FromRoute] string fileId)
         {
 
             try
             {
+
                 var (fileType, archiveData, archiveName) = _fileService.DownloadFiles(subDirectory);
 
                 return File(archiveData, fileType, archiveName);

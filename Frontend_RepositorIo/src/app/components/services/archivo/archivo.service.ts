@@ -9,7 +9,8 @@ export class ArchivoService {
 
   private urlGetArchivosByRepo = BASE_URL + 'archivos/repositorio/';
   private urlPostArchivos = BASE_URL + 'archivos/upload/';
-  private urlDeleteArchivos =   BASE_URL + 'archivos/delete/'
+  private urlDeleteArchivos =   BASE_URL + 'archivos/delete/';
+  private urlDownloadFiles = BASE_URL + 'archivos/download'; 
 
   constructor(
     private http: HttpClient
@@ -25,6 +26,10 @@ export class ArchivoService {
 
   public deleteArchivo(file: any) {
     return this.http.delete(this.urlDeleteArchivos + file.id);
+  }
+
+  public downloadFiles(user, repo, fileId) {
+    return this.http.get(`this.urlDownloadFiles/${user}/${repo}/${fileId}`);
   }
 
 }

@@ -5,7 +5,7 @@ import { ArchivoService } from '../services/archivo/archivo.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { WarningModalComponent } from 'src/app/shared/components/warningModal/warning-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import { concatMap, delay } from 'rxjs';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-repositorios',
@@ -62,7 +62,6 @@ export class RepositoriosComponent implements OnInit {
     });
   }
 
-  // ARREGLAR SUBIDA ARCHIVOS AL MISMO TIEMPO QUE REPOSITORIO
   public onSubmit(event: any) {
     let repositorio = {
       nombre: this.repositoriosForm.get('titulo').value.replaceAll(' ', '_'),
@@ -70,21 +69,32 @@ export class RepositoriosComponent implements OnInit {
       usuarioId: this.userLoggedIn.id,
     };
 
-    this._repoService
-      .postRepositorio(repositorio)
-      .toPromise()
-      .then((res) => {
-        let form = new FormData();
-        this.selectedFiles.forEach((file) => {
-          form.append('file', file);
-        });
-
-        delay(2000)
-
-        this._archivoService.postArchivos(form, repositorio.usuarioId, repositorio.nombre)
-          .toPromise()
-          .then(res => console.log(res))
+    try {
+      this._repoService.postRepositorio(repositorio).subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } finally {
+      let form = new FormData();
+      this.selectedFiles.forEach((file) => {
+        form.append('file', file);
       });
+
+      this._archivoService
+        .postArchivos(form, repositorio.usuarioId, repositorio.nombre)
+        .subscribe(
+          (res) => {
+            console.log(res);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    }
 
     this.isCreandoRepo = false;
   }
@@ -120,6 +130,46 @@ export class RepositoriosComponent implements OnInit {
         console.error(err);
       }
     );
+  }
+
+  downloadFiles() {
+    const files = this.getSelectedFiles();
+    const filesToDownloadIds = [];
+    files.forEach((file) => {
+      filesToDownloadIds.push(file['id']);
+    });
+
+    if (files.length == 0) {
+      const dialogRef = this.dialog.open(WarningModalComponent, {
+        maxWidth: '800px',
+        data: {
+          title: `Selecciona algún archivo`,
+          message: '',
+          isGeneralPurposeModal: true,
+        },
+      });
+    } else if (files.length == 1) {
+      this._archivoService.downloadFile(files[0]['id']).subscribe(
+        (res) => {
+          console.log(res);
+          saveAs(res, files[0]['filename']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    } else {
+      this._archivoService.downloadFiles(filesToDownloadIds).subscribe(
+        (res) => {
+          console.log(res);
+          const blob = new Blob([res], { type: 'application/zip' });
+          saveAs(blob, this.repositorioActualNombre);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   onDelete(repo) {

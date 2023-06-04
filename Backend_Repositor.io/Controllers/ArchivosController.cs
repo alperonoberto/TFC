@@ -4,6 +4,7 @@ using Backend_Repositor.io.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace Backend_Repositor.io.Controllers
 {
@@ -23,7 +24,7 @@ namespace Backend_Repositor.io.Controllers
 
         #region Upload File
         [HttpPost("upload/{usuario}/{repoName}")]
-        public IActionResult Upload([FromRoute] string usuario, [FromRoute] string repoName)
+        public async Task<IActionResult> Upload([FromRoute] string usuario, [FromRoute] string repoName)
         {
             try
             {
@@ -50,10 +51,9 @@ namespace Backend_Repositor.io.Controllers
                     dbFile.RepositorioId = repositorio.Id;
 
                     _context.Archivos.Add(dbFile);
-                    _context.SaveChanges();
                 });
 
-
+                _context.SaveChanges();
                 _fileService.UploadFiles(files, directory);
 
                 return Ok($"Files: {files.Count} Size: {_fileService.SizeConverter(files.Sum(f => f.Length))}");
@@ -66,22 +66,45 @@ namespace Backend_Repositor.io.Controllers
         #endregion
 
         #region Download File  
-        [HttpGet("download/{usuario}/{repoName}/{fileId}")]
-        public IActionResult Download([FromRoute] string usuario, [FromRoute] string repoName, [FromRoute] string fileId)
+        [HttpGet("download/filess")]
+        public async Task<IActionResult> Download([FromQuery] long[] fileIds)
         {
-
+            string[] filepaths = new string[] { };
+            List<string> paths = new List<string>(filepaths);
             try
             {
+                foreach (var id in fileIds)
+                {
+                    var file = _context.Archivos.FindAsync(id).Result.Filepath;
+                    paths.Add(Path.Combine(file));
+                }
 
-                var (fileType, archiveData, archiveName) = _fileService.DownloadFiles(subDirectory);
+                if (System.IO.File.Exists(paths[0]))
+                {
+                    var (data, filetype, filename) = _fileService.DownloadFiles(paths.ToArray());
+                    var files = File(data, filetype, filename);
+                    return files;
+                }
 
-                return File(archiveData, fileType, archiveName);
+                return BadRequest();
             }
-            catch (Exception ex)
+            catch
             {
-                return BadRequest(ex.Message);
+                return BadRequest("Algo ha ido mal");
             }
+        }
 
+        [HttpGet("download/file/{fileId}")]
+        public async Task<IActionResult> GetFileById([FromRoute] long fileId)
+        {
+            var file = await _context.Archivos.FindAsync(fileId);
+            var filePath = file.Filepath;
+
+            if (System.IO.File.Exists(filePath))
+            {
+                return File(System.IO.File.OpenRead(filePath), "application/octet-stream", Path.GetFileName(filePath));
+            }
+            return NotFound();
         }
         #endregion
 
@@ -186,22 +209,22 @@ namespace Backend_Repositor.io.Controllers
         }
         #endregion
 
-        public static void DeleteDirectory(string target_dir) 
-        { 
-            string[] files = Directory.GetFiles(target_dir); 
-            string[] dirs = Directory.GetDirectories(target_dir); 
-            foreach (string file in files) 
+        public static void DeleteDirectory(string target_dir)
+        {
+            string[] files = Directory.GetFiles(target_dir);
+            string[] dirs = Directory.GetDirectories(target_dir);
+            foreach (string file in files)
             {
                 System.IO.File.SetAttributes(file, FileAttributes.Normal);
                 System.IO.File.Delete(file);
-            } 
-            
-            foreach (string dir in dirs) 
-            { 
-                DeleteDirectory(dir); 
             }
-            
-            Directory.Delete(target_dir, false); 
+
+            foreach (string dir in dirs)
+            {
+                DeleteDirectory(dir);
+            }
+
+            Directory.Delete(target_dir, false);
         }
     }
 }

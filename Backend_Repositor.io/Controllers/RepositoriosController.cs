@@ -84,7 +84,7 @@ namespace Backend_Repositor.io.Controllers
                 _context.Repositorios.Add(repositorio);
                 await _context.SaveChangesAsync();
 
-                return Ok("Repositorio creado: " + repositorioFolderPath);
+                return Ok(repositorio);
             }
             else
             {

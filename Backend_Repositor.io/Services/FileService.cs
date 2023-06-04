@@ -28,42 +28,64 @@ namespace Backend_Repositor.io.Services
             {
                 Directory.CreateDirectory(directory);
             }
-            
-            files.ForEach(async file =>
+
+            //files.ForEach(async file =>
+            //{
+            //    if (file.Length <= 0) return;
+            //    var filePath = Path.Combine(directory, file.FileName);
+            //    using (var stream = new FileStream(filePath, FileMode.Create))
+            //    {
+            //        try
+            //        {
+            //            await file.CopyToAsync(stream);
+            //        }
+            //        finally
+            //        {
+            //            stream.Close();
+            //            stream.Dispose();
+            //        }
+            //    }
+            //});
+
+            foreach (var file in files)
             {
-                if (file.Length <= 0) return;
+                if (file.Length <= 0) continue;
+
                 var filePath = Path.Combine(directory, file.FileName);
+
                 using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    await file.CopyToAsync(stream);
+                    file.CopyTo(stream);
                 }
-            });
+            }
+
         }
         #endregion
 
         #region Download File  
-        public (string fileType, byte[] archiveData, string archiveName) DownloadFiles(string subDirectory)
+        public (byte[] archiveData, string fileType, string archiveName) DownloadFiles(string[] filepaths)
         {
             var zipName = $"archive-{DateTime.Now.ToString("yyyy_MM_dd-HH_mm_ss")}.zip";
-
-            var files = Directory.GetFiles(Path.Combine(_hostingEnvironment.ContentRootPath, subDirectory)).ToList();
 
             using (var memoryStream = new MemoryStream())
             {
                 using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
                 {
-                    files.ForEach(file =>
+                    foreach(var path in filepaths)
                     {
-                        var theFile = archive.CreateEntry(file);
-                        using (var streamWriter = new StreamWriter(theFile.Open()))
+                        var filename = Path.GetFileName(path);
+                        var theFile = archive.CreateEntry(filename, CompressionLevel.Optimal);
+
+                        using (var entryStream = theFile.Open())
+                        using (var fileStream = File.OpenRead(path))
                         {
-                            streamWriter.Write(File.ReadAllText(file));
+                            fileStream.CopyTo(entryStream);
                         }
 
-                    });
+                    }
                 }
 
-                return ("application/zip", memoryStream.ToArray(), zipName);
+                return (memoryStream.ToArray(), "application/zip", zipName);
             }
 
         }

@@ -5,6 +5,7 @@ export interface DialogData {
   title: string;
   files?: string[];
   message: string;
+  isGeneralPurposeModal: boolean;
 }
 
 @Component({
@@ -17,13 +18,16 @@ export class WarningModalComponent implements OnInit {
   title: string;
   message: string;
   files?: string[];
+  isGeneralPurposeModal: boolean;
 
   constructor(
     @Inject(MatDialogRef) public dialogRef: MatDialogRef<WarningModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isGeneralPurposeModal = this.data.isGeneralPurposeModal;
+  }
 
   onConfirm(): void {
     // Close the dialog, return true

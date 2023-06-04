@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="botoneraArchivos">
-                <button mat-flat-button color="primary">Descargar</button>
+                <button mat-flat-button color="primary" (click)="downloadFiles()">Descargar</button>
                 <button type="button" mat-raised-button (click)="fileInput.click()" color="accent">Agregar</button>
                 <input hidden (change)="uploadFiles($event)" #fileInput type="file" multiple>
                 <button mat-flat-button color="warn" (click)="onDeleteFiles()">Eliminar</button>

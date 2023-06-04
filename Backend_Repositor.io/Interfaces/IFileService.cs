@@ -7,7 +7,7 @@ namespace Backend_Repositor.io.Interfaces
     public interface IFileService
     {
         void UploadFiles(List<IFormFile> files, string subDirectory);
-        (string fileType, byte[] archiveData, string archiveName) DownloadFiles(string subDirectory);
+        (byte[] archiveData, string fileType, string archiveName) DownloadFiles(string[] filepaths);
         string SizeConverter(long bytes);
     }
 }

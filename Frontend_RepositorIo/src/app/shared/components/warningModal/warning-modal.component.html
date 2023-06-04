@@ -1,6 +1,6 @@
 <mat-card fxLayoutGap>
 
-    <h1 mat-dialog-title><span style="color: red">Borrando</span>{{data.title}}</h1>
+    <h1 mat-dialog-title><span style="color: red" *ngIf="!isGeneralPurposeModal">Borrando</span>{{data.title}}</h1>
 
     <h3 display-2>{{data.message}}</h3>
 
@@ -14,7 +14,7 @@
 
 
     <div mat-dialog-actions>
-        <button mat-button (click)="onDismiss()">Cancelar</button>
-        <button mat-raised-button color="warn" (click)="onConfirm()">Borrar</button>
+        <button mat-button (click)="onDismiss()" *ngIf="!isGeneralPurposeModal">Cancelar</button>
+        <button mat-raised-button color="warn" (click)="onConfirm()">{{isGeneralPurposeModal ? "Aceptar" : "Borrar"}}</button>
     </div>
 </mat-card>

@@ -1,0 +1,1 @@
+https://joeduffyblog.com/2004/12/12/follow-up-should-you-invoke-close-andor-dispose-on-a-stream/

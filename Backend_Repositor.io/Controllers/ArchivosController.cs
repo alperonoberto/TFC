@@ -24,7 +24,7 @@ namespace Backend_Repositor.io.Controllers
 
         #region Upload File
         [HttpPost("upload/{usuario}/{repoName}")]
-        public async Task<IActionResult> Upload([FromRoute] string usuario, [FromRoute] string repoName)
+        public IActionResult Upload([FromRoute] string usuario, [FromRoute] string repoName)
         {
             try
             {

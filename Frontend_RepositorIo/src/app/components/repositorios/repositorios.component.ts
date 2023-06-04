@@ -120,6 +120,7 @@ export class RepositoriosComponent implements OnInit {
           .subscribe(
             (res) => {
               console.log(res);
+              this.isCreandoRepo ? this.selectedFiles = [] : null;
             },
             (err) => {
               console.error(err);

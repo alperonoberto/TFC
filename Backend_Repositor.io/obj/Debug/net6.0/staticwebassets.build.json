@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3i+oOUdP3RFkPCklvgKVcZw8NAcmB1MchiHThnnTWps=",
+  "Hash": "YK42Aenm3C4IeCv38PUSQ+Ib6lO5NxJPH6fvo7t2AiM=",
   "Source": "Backend_Repositor.io",
   "BasePath": "_content/Backend_Repositor.io",
   "Mode": "Default",
@@ -270,6 +270,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\s-l1600.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mercedes\\Mis_fotos\\camiseta.psd",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/Mercedes/Mis_fotos/camiseta.psd",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\Mercedes\\Mis_fotos\\camiseta.psd"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",

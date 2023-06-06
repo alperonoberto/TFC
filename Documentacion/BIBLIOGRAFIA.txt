@@ -1,1 +1,7 @@
 https://joeduffyblog.com/2004/12/12/follow-up-should-you-invoke-close-andor-dispose-on-a-stream/
+https://developer.mozilla.org/es/docs/Web/JavaScript
+https://fullstackmark.com/post/10/user-authentication-with-angular-and-asp-net-core
+https://angular.io/docs
+https://learn.microsoft.com/en-us/dotnet/api/system.web.http.apicontroller?view=aspnet-webapi-5.2
+https://learn.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-7.0
+https://learn.microsoft.com/en-us/aspnet/core/fundamentals/best-practices?view=aspnetcore-7.0

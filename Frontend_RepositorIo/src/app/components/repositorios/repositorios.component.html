@@ -17,7 +17,7 @@
                 <mat-card-title>Selecciona un repositorio para ver su contenido</mat-card-title>
             </mat-card-content>
         </mat-card>
-        <mat-card *ngIf="isCreandoRepo" style="margin-top: 5rem;">
+        <mat-card *ngIf="isCreandoRepo" style="margin-top: 5rem;" (after-if)="vaciarListas()">
             <mat-card-content>
                 <mat-card-title style="margin-bottom: 1rem;">Nuevo repositorio</mat-card-title>
                 <form [formGroup]="repositoriosForm" (ngSubmit)="onSubmit($event)">
@@ -33,7 +33,7 @@
 
                     <button type="button" mat-raised-button (click)="fileInput.click()" color="primary">Seleccionar
                         archivos</button>
-                    <input hidden (change)="onFileSelected($event)" #fileInput type="file" multiple>
+                    <input hidden formControlName="archivos" (change)="onFileSelected($event)" #fileInput type="file" multiple>
                     <mat-list>
                         <mat-list-item *ngFor="let file of selectedFiles">{{file.name}}</mat-list-item>
                     </mat-list>

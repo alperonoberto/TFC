@@ -19,6 +19,8 @@ export class UserComponent implements OnInit {
 
   public user: any;
   public listaRepos: any[] = [];
+  public listaSeguidores: any[] = [];
+  public listaSeguidos: any[] = [];
 
   ngOnInit() {
     this.user = this._loginService.user;

@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  Directive,
+  EventEmitter,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { RepositorioService } from '../services/repositorio/repositorio.service';
 import { LoginService } from '../services/login/login.service';
 import { ArchivoService } from '../services/archivo/archivo.service';
@@ -22,12 +29,14 @@ export class RepositoriosComponent implements OnInit {
   public listaRepositorios = [];
   public listaArchivos = [];
   public filesToDelete = [];
+  public filesToDownloadIds = [];
 
   private repositorio: any;
 
   repositoriosForm = new FormGroup({
     titulo: new FormControl(''),
     descripcion: new FormControl(''),
+    archivos: new FormControl(),
   });
 
   constructor(
@@ -79,21 +88,23 @@ export class RepositoriosComponent implements OnInit {
         }
       );
     } finally {
-      let form = new FormData();
-      this.selectedFiles.forEach((file) => {
-        form.append('file', file);
-      });
+      if (this.repositoriosForm.get('archivos').value != null) {
+        let form = new FormData();
+        this.selectedFiles.forEach((file) => {
+          form.append('file', file);
+        });
 
-      this._archivoService
-        .postArchivos(form, repositorio.usuarioId, repositorio.nombre)
-        .subscribe(
-          (res) => {
-            console.log(res);
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
+        this._archivoService
+          .postArchivos(form, repositorio.usuarioId, repositorio.nombre)
+          .subscribe(
+            (res) => {
+              console.log(res);
+            },
+            (err) => {
+              console.log(err);
+            }
+          );
+      }
     }
 
     this.isCreandoRepo = false;
@@ -120,7 +131,7 @@ export class RepositoriosComponent implements OnInit {
           .subscribe(
             (res) => {
               console.log(res);
-              this.isCreandoRepo ? this.selectedFiles = [] : null;
+              this.isCreandoRepo ? (this.selectedFiles = []) : null;
             },
             (err) => {
               console.error(err);
@@ -135,9 +146,9 @@ export class RepositoriosComponent implements OnInit {
 
   downloadFiles() {
     const files = this.getSelectedFiles();
-    const filesToDownloadIds = [];
+    this.filesToDownloadIds = [];
     files.forEach((file) => {
-      filesToDownloadIds.push(file['id']);
+      this.filesToDownloadIds.push(file['id']);
     });
 
     if (files.length == 0) {
@@ -160,7 +171,7 @@ export class RepositoriosComponent implements OnInit {
         }
       );
     } else {
-      this._archivoService.downloadFiles(filesToDownloadIds).subscribe(
+      this._archivoService.downloadFiles(this.filesToDownloadIds).subscribe(
         (res) => {
           console.log(res);
           const blob = new Blob([res], { type: 'application/zip' });
@@ -231,15 +242,32 @@ export class RepositoriosComponent implements OnInit {
   }
 
   getSelectedFiles(): string[] {
-    return this.filesToDelete;
+    return this.filesToDownloadIds;
   }
 
   addSelectedFile(event: any, file) {
     if (event.checked) {
-      this.filesToDelete.push(file);
-    } else if (this.filesToDelete.includes(file)) {
-      let index = this.filesToDelete.findIndex((f) => f.id == file.id);
-      this.filesToDelete.splice(index, 1);
+      this.filesToDownloadIds.push(file);
+    } else if (this.filesToDownloadIds.includes(file)) {
+      let index = this.filesToDownloadIds.findIndex((f) => f.id == file.id);
+      this.filesToDownloadIds.splice(index, 1);
     }
+  }
+
+  vaciarListas() {
+    this.selectedFiles = [];
+    this.filesToDelete = []; 
+    this.filesToDownloadIds = [];
+  }
+}
+
+@Directive({ selector: '[after-if]' })
+export class AfterIfDirective implements AfterContentInit {
+  @Output('after-if')
+  public after: EventEmitter<void> = new EventEmitter<void>();
+
+  public ngAfterContentInit(): void {
+    // timeout helps prevent unexpected change errors
+    setTimeout(() => this.after.next());
   }
 }

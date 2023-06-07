@@ -24,7 +24,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IFileService, FileService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer("Server=localhost;Database=Repositor.io;Trusted_Connection=true"));
+    options.UseSqlServer(@"Server=pc058\SQLEXPRESS;Database=Repositor.io;Trusted_Connection=true"));
 
 var app = builder.Build();
 

@@ -98,11 +98,17 @@ namespace Backend_Repositor.io.Controllers
         [Route("delete/{id}")]
         public async Task<IActionResult> Delete([FromRoute]long id)
         {
+            var relaciones = await _context.Relaciones.Where(r => (r.SeguidorId == id || r.SeguidoId == id)).ToListAsync();
             var usuario = await _context.Users.FindAsync(id);
 
             if (usuario == null)
             {
                 return NotFound();
+            }
+
+            foreach(var rel in relaciones)
+            {
+                _context.Relaciones.Remove(rel);
             }
 
             _context.Users.Remove(usuario);

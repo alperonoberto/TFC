@@ -4,6 +4,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 
 import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
+import { AuthComponent } from 'src/app/shared/components/auth/auth.component';
 
 
 @Component({
@@ -11,9 +12,13 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent extends AuthComponent implements OnInit {
   
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService, 
+    private router: Router) {
+      super();
+    }
 
   loginError: boolean = false;
 
@@ -41,7 +46,8 @@ export class LoginComponent implements OnInit {
   submit(){
     const user = {
       username: this.loginForm.value.username,
-      password: null
+      password: null,
+      rol: null
     }
     this.loginService
       .getPasswordEncrypted(this.loginForm.value.password)
@@ -55,6 +61,11 @@ export class LoginComponent implements OnInit {
             if(user.username === dbUser["username"] && user.password === dbUser["password"]) {
               this.loginService.isLoggedIn.emit(true);
               this.loginService.setUserLoggedIn(dbUser);
+
+              if(user.username == 'admin') {
+                this.loginService.isAdmin.emit(true)
+              }
+
               this.router.navigate(['/home']);
             }
           }

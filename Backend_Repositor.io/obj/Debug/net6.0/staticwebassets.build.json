@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7eOF5JSc3VHB7mK8EoJo+DZ6Qf/6uLkK6QWegiyH3j0=",
+  "Hash": "ffYbJzY5k+0qev7DKanysGbVu3RFBpJbxr0hMmW/XYk=",
   "Source": "Backend_Repositor.io",
   "BasePath": "_content/Backend_Repositor.io",
   "Mode": "Default",
@@ -10,19 +10,19 @@
     {
       "Name": "Backend_Repositor.io\\wwwroot",
       "Source": "Backend_Repositor.io",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\a\\9d15afe1ceb24678a057dce517b98b3e.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\aa\\[removal.ai]_tmp-63d0ed53883a1.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/a/9d15afe1ceb24678a057dce517b98b3e.jpg",
+      "RelativePath": "Repositorios/admin/aa/[removal.ai]_tmp-63d0ed53883a1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\a\\9d15afe1ceb24678a057dce517b98b3e.jpg"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aa\\[removal.ai]_tmp-63d0ed53883a1.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\a\\bs.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\aa\\1.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/a/bs.jpg",
+      "RelativePath": "Repositorios/admin/aa/1.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,15 +48,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\a\\bs.jpg"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aa\\1.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bear_grizzly_bear_eyes_nose_85885_1920x1080.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\aa\\1662997054939.jfif",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/cosas_aleatorias/bear_grizzly_bear_eyes_nose_85885_1920x1080.jpg",
+      "RelativePath": "Repositorios/admin/aa/1662997054939.jfif",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -65,15 +65,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bear_grizzly_bear_eyes_nose_85885_1920x1080.jpg"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aa\\1662997054939.jfif"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bear_grizzly_bear_eyes_nose_85885_1920x1080.tif",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\aa\\911799.png",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/cosas_aleatorias/bear_grizzly_bear_eyes_nose_85885_1920x1080.tif",
+      "RelativePath": "Repositorios/admin/aa/911799.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,15 +82,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bear_grizzly_bear_eyes_nose_85885_1920x1080.tif"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aa\\911799.png"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bs.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mi_musica\\s-l1600.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
-      "RelativePath": "Repositorios/admin/cosas_aleatorias/bs.jpg",
+      "RelativePath": "Repositorios/admin/Mi_musica/s-l1600.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -99,13 +99,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\cosas_aleatorias\\bs.jpg"
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\Mi_musica\\s-l1600.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\marisma.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\marisma.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/admin/Mis_fotos/marisma.jpg",
       "AssetKind": "All",
@@ -119,10 +119,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\Mis_fotos\\marisma.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\maxresdefault.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\maxresdefault.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/admin/Mis_fotos/maxresdefault.jpg",
       "AssetKind": "All",
@@ -136,10 +136,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\Mis_fotos\\maxresdefault.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\owl_bird_freddy_krueger_minimalism_93919_1920x1080.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mis_fotos\\owl_bird_freddy_krueger_minimalism_93919_1920x1080.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/admin/Mis_fotos/owl_bird_freddy_krueger_minimalism_93919_1920x1080.jpg",
       "AssetKind": "All",
@@ -153,10 +153,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\Mis_fotos\\owl_bird_freddy_krueger_minimalism_93919_1920x1080.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Alberto/polno/120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
       "AssetKind": "All",
@@ -170,10 +170,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\2977571-band-death-metal___mixed-wallpapers.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\2977571-band-death-metal___mixed-wallpapers.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Alberto/polno/2977571-band-death-metal___mixed-wallpapers.jpg",
       "AssetKind": "All",
@@ -187,10 +187,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\2977571-band-death-metal___mixed-wallpapers.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\411940@2x.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\411940@2x.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Alberto/polno/411940@2x.jpg",
       "AssetKind": "All",
@@ -204,10 +204,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\411940@2x.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\709285.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\709285.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Alberto/polno/709285.jpg",
       "AssetKind": "All",
@@ -221,10 +221,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\709285.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\9d15afe1ceb24678a057dce517b98b3e.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Alberto\\polno\\9d15afe1ceb24678a057dce517b98b3e.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Alberto/polno/9d15afe1ceb24678a057dce517b98b3e.jpg",
       "AssetKind": "All",
@@ -238,10 +238,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\9d15afe1ceb24678a057dce517b98b3e.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\blog-sobre-gnomos-de-jardín.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\blog-sobre-gnomos-de-jardín.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/blog-sobre-gnomos-de-jardín.jpg",
       "AssetKind": "All",
@@ -255,10 +255,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\blog-sobre-gnomos-de-jardín.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomo.avif",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomo.avif",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/gnomo.avif",
       "AssetKind": "All",
@@ -272,10 +272,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomo.avif"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomos-enanos-jardin-1968723.webp",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomos-enanos-jardin-1968723.webp",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/gnomos-enanos-jardin-1968723.webp",
       "AssetKind": "All",
@@ -289,10 +289,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\gnomos-enanos-jardin-1968723.webp"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\images.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\images.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/images.jpg",
       "AssetKind": "All",
@@ -306,10 +306,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\images.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\s-l1600.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\s-l1600.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/s-l1600.jpg",
       "AssetKind": "All",
@@ -323,10 +323,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\s-l1600.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\thumb-1920-656026.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\thumb-1920-656026.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/elgnomodelawa/gnomos/thumb-1920-656026.jpg",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\thumb-1920-656026.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop (1).mp3",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop (1).mp3",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/manolo/FOTOS_Y_MUSICA/120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop (1).mp3",
       "AssetKind": "All",
@@ -357,10 +357,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop (1).mp3"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\1562710461556.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\1562710461556.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/manolo/FOTOS_Y_MUSICA/1562710461556.jpg",
       "AssetKind": "All",
@@ -374,10 +374,78 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\manolo\\FOTOS_Y_MUSICA\\1562710461556.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mercedes\\patata\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\gnomo.avif",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/Mariluz/Mis_fotos/gnomo.avif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\gnomo.avif"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\gnomos-enanos-jardin-1968723.webp",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/Mariluz/Mis_fotos/gnomos-enanos-jardin-1968723.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\gnomos-enanos-jardin-1968723.webp"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\images.jpg",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/Mariluz/Mis_fotos/images.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\images.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\s-l1600.jpg",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/Mariluz/Mis_fotos/s-l1600.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\Mariluz\\Mis_fotos\\s-l1600.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mercedes\\patata\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Mercedes/patata/120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3",
       "AssetKind": "All",
@@ -391,10 +459,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Mercedes\\patata\\120 BPM - Stoner Rock  Doom Metal Psychedelic Retro Rock Play Along Jam Track Drum Loop.mp3"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mercedes\\patata\\table-data.csv",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\Mercedes\\patata\\table-data.csv",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/Mercedes/patata/table-data.csv",
       "AssetKind": "All",
@@ -408,10 +476,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\Mercedes\\patata\\table-data.csv"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repo1/2977571-band-death-metal___mixed-wallpapers.jpg",
       "AssetKind": "All",
@@ -425,10 +493,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\user\\repo1\\2977571-band-death-metal___mixed-wallpapers.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repo1\\709285.jpg",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repo1/709285.jpg",
       "AssetKind": "All",
@@ -442,10 +510,10 @@
       "OriginalItemSpec": "wwwroot\\Repositorios\\user\\repo1\\709285.jpg"
     },
     {
-      "Identity": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\user\\repositorioPrueba\\c7e72034661c5b7eb601c31c789ab412.png",
       "SourceId": "Backend_Repositor.io",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
       "BasePath": "_content/Backend_Repositor.io",
       "RelativePath": "Repositorios/user/repositorioPrueba/c7e72034661c5b7eb601c31c789ab412.png",
       "AssetKind": "All",

@@ -1,0 +1,50 @@
+<div class="container">
+
+    <table mat-table [dataSource]="userList" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let user"> {{user.id}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef> Usuario </th>
+            <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="fechaAlta">
+            <th mat-header-cell *matHeaderCellDef> Fecha de alta</th>
+            <td mat-cell *matCellDef="let user"> {{user.fechaAlta | date:'long'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="rol">
+            <th mat-header-cell *matHeaderCellDef> Rol </th>
+            <td mat-cell *matCellDef="let user"> {{user.rol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="accion">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let user">
+                <span *ngIf="user.rol==='ADMIN'" style="font-style: italic;">No se puede eliminar una cuenta de administrador</span>
+                <button mat-flat-button color="warn" (click)="onDelete(user)" *ngIf="user.rol!=='ADMIN'">
+                    <mat-icon>delete</mat-icon>
+                    <span>Eliminar</span>
+                </button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-card style="width: max-content;">
+        <mat-card-content>
+            <mat-paginator #paginator class="paginator" (page)="handlePageEvent($event)" [length]="userList.length"
+                [pageSize]="10" aria-label="Select page">
+            </mat-paginator>
+        </mat-card-content>
+    </mat-card>
+</div>

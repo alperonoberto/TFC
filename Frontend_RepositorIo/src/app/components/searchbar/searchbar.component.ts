@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { LoginService } from '../services/login/login.service';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { Router } from '@angular/router';
+import { SearchService } from '../services/search/search.service';
 
 @Component({
   selector: 'app-searchbar',
@@ -9,12 +11,18 @@ import { Observable, map, startWith } from 'rxjs';
   styleUrls: ['./searchbar.component.scss'],
 })
 export class SearchbarComponent implements OnInit {
+
   public usersList = [];
   public usernamesList = [];
   public filteredUsers: Observable<string[]>;
   public searchbar = new FormControl('');
+  public currentUser: string;
 
-  constructor(protected _loginService: LoginService) {}
+  constructor(
+    protected _loginService: LoginService,
+    protected _searchService: SearchService,
+    protected router: Router
+    ) {}
 
   public ngOnInit() {
     this.cargarUsers();
@@ -44,6 +52,23 @@ export class SearchbarComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.usernamesList.filter(user => user.toLowerCase().includes(filterValue));
+  }
+
+  public mostrarUserPage(user: string) {
+    this._loginService.getUserByUsername(user)
+      .subscribe(
+        res => {
+          console.log(res["username"])
+          this._searchService.userSearched.emit(res);
+          this.router.navigateByUrl("public/user");
+
+        }
+      )
+  }
+
+  public selectUser(user: string) {
+    this.currentUser = user;
+    this.mostrarUserPage(this.currentUser);
   }
 
 

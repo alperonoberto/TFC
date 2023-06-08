@@ -10,7 +10,7 @@ import { WarningModalComponent } from 'src/app/shared/components/warningModal/wa
 })
 export class AdminComponent implements OnInit {
   public user: any;
-  public displayedColumns: string[] = ['id', 'username', 'fechaAlta', 'rol', 'accion'];
+  public displayedColumns: string[] = ['id', 'username', 'fechaAlta', 'rol', 'accion', 'accion2'];
   public userList = [];
 
   constructor(
@@ -40,12 +40,41 @@ export class AdminComponent implements OnInit {
         title: ` usuario`,
         message: `Está a punto de eliminar el usuario ${user.username}`,
         isGeneralPurposeModal: false,
+        isBorrando: true
       },
     });
 
     dialogRef.afterClosed().subscribe((res) => {
       if (res) {
         this._loginService.deleteUser(user)
+          .subscribe(
+            res => {
+              console.log(res)
+            },
+            err => {
+              console.log(err)
+            }
+          )
+      }
+    });
+  }
+
+  upgradeUser(user: any) {
+    const dialogRef = this.dialog.open(WarningModalComponent, {
+      maxWidth: '800px',
+      data: {
+        title: `Elevar permisos`,
+        message: `Está a punto de elevar los permisos del usuario ${user.username}`,
+        isGeneralPurposeModal: false,
+        isBorrando: false
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        user.rol = 'ADMIN'
+
+        this._loginService.updateUser(user)
           .subscribe(
             res => {
               console.log(res)

@@ -93,10 +93,10 @@ namespace Backend_Repositor.io.Controllers
         }
 
         [HttpDelete]
-        [Route("delete/{id}")]
-        public async Task<IActionResult> Delete([FromRoute] long id)
+        [Route("delete/{idA}/{idB}")]
+        public async Task<IActionResult> Delete([FromRoute] long idA, [FromRoute] long idB)
         {
-            var relacion = await _context.Relaciones.FindAsync(id);
+            var relacion = await _context.Relaciones.FindAsync(idA, idB);
 
             if (relacion == null)
             {

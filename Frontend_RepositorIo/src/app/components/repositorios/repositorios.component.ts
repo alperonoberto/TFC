@@ -54,6 +54,7 @@ export class RepositoriosComponent implements OnInit {
   }
 
   mostrarArchivos(repositorio: any) {
+    this.vaciarListas();
     this.repositorio = repositorio;
     this.isCreandoRepo = false;
     this.repositorioActual = repositorio.id;
@@ -158,6 +159,7 @@ export class RepositoriosComponent implements OnInit {
           title: `Selecciona algún archivo`,
           message: '',
           isGeneralPurposeModal: true,
+          isBorrando: false,
         },
       });
     } else if (files.length == 1) {
@@ -190,6 +192,8 @@ export class RepositoriosComponent implements OnInit {
       data: {
         title: ` repositorio ${repo.nombre}`,
         message: 'Confirma tu elección:',
+        isGeneralPurposeModal: false,
+        isBorrando: true,
       },
     });
 
@@ -215,30 +219,44 @@ export class RepositoriosComponent implements OnInit {
       filesToDeleteNames.push(file['filename']);
     });
 
-    const dialogRef = this.dialog.open(WarningModalComponent, {
-      maxWidth: '800px',
-      data: {
-        title: ` archivos`,
-        message: 'Confirma tu elección:',
-        files: filesToDeleteNames,
-      },
-    });
-
-    dialogRef.afterClosed().subscribe((res) => {
-      if (res) {
-        this.filesToDelete.forEach((file) => {
-          this._archivoService.deleteArchivo(file).subscribe(
-            (res) => {
-              console.log(res);
-              this.mostrarArchivos(this.repositorio);
-            },
-            (err) => {
-              console.error(err);
-            }
-          );
-        });
-      }
-    });
+    if(files.length == 0) {
+      const dialogRef = this.dialog.open(WarningModalComponent, {
+        maxWidth: '800px',
+        data: {
+          title: `Selecciona algún archivo`,
+          message: '',
+          isGeneralPurposeModal: true,
+          isBorrando: false
+        },
+      });
+    } else {
+      const dialogRef = this.dialog.open(WarningModalComponent, {
+        maxWidth: '800px',
+        data: {
+          title: ` archivos`,
+          message: 'Confirma tu elección:',
+          files: filesToDeleteNames,
+          isGeneralPurposeModal: false,
+          isBorrando: true
+        },
+      });
+  
+      dialogRef.afterClosed().subscribe((res) => {
+        if (res) {
+          this.filesToDelete.forEach((file) => {
+            this._archivoService.deleteArchivo(file).subscribe(
+              (res) => {
+                console.log(res);
+                this.mostrarArchivos(this.repositorio);
+              },
+              (err) => {
+                console.error(err);
+              }
+            );
+          });
+        }
+      });
+    }
   }
 
   getSelectedFiles(): string[] {

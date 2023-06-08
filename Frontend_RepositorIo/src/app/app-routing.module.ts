@@ -8,6 +8,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RepositoriosComponent } from './components/repositorios/repositorios.component';
 import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { UserPublicComponent } from './components/userPublic/user-public.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'repositories', component: RepositoriosComponent },
   { path: 'user', component: UserComponent },
+  { path: 'public/user', component: UserPublicComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 

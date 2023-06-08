@@ -6,6 +6,7 @@ export interface DialogData {
   files?: string[];
   message: string;
   isGeneralPurposeModal: boolean;
+  isBorrando: boolean;
 }
 
 @Component({
@@ -19,6 +20,7 @@ export class WarningModalComponent implements OnInit {
   message: string;
   files?: string[];
   isGeneralPurposeModal: boolean;
+  isBorrando: boolean;
 
   constructor(
     @Inject(MatDialogRef) public dialogRef: MatDialogRef<WarningModalComponent>,
@@ -27,6 +29,7 @@ export class WarningModalComponent implements OnInit {
 
   ngOnInit() {
     this.isGeneralPurposeModal = this.data.isGeneralPurposeModal;
+    this.isBorrando = this.data.isBorrando;
   }
 
   onConfirm(): void {

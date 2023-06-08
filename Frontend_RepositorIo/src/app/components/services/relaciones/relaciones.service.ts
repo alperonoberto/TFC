@@ -16,7 +16,7 @@ export class RelacionesService {
   private urlGetRelacionesByUser = BASE_URL + 'relaciones/user/';
   private urlPostRelacion = BASE_URL + 'relaciones/add';
   private urlPutRelacion = BASE_URL + 'relaciones/update';
-  private urlDeleteRelacion = BASE_URL + 'relaciones/delete';
+  private urlDeleteRelacion = BASE_URL + 'relaciones/delete/';
 
   public GetRelaciones() {
     return this._http.get(this.urlGetRelaciones);
@@ -38,7 +38,7 @@ export class RelacionesService {
     return this._http.put(this.urlPutRelacion, relacion);
   }
 
-  public DeleteRelacion(relacionId: number) {
-    return this._http.get(this.urlDeleteRelacion);
+  public DeleteRelacion(seguidorId: number, seguidoId: number) {
+    return this._http.delete(this.urlDeleteRelacion + `${seguidorId}/${seguidoId}`);
   }
 }

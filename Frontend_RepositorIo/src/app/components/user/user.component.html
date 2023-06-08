@@ -1,5 +1,5 @@
 <div class="container">
-    <mat-card>
+    <mat-card *ngIf="!isEditing">
         <mat-card-content>
             <mat-card-title>
                 <h1>{{user.username}}</h1>
@@ -9,11 +9,11 @@
             </mat-card-subtitle>
             <div class="content">
                 <div class="user">
-                    <img class="profileImage" mat-card-avatar src="./../../../assets/anonimo.jpeg" alt="profile">
+                    <img class="profileImage" mat-card-avatar src="{{srcResult}}" alt="profile" />
                     <div class="info">
                         <h3>Fecha de alta: {{user.fechaAlta | date:'short'}}</h3>
                         <h3>Rol: {{user.rol}}</h3>
-                        <button class="btn" mat-flat-button color="primary">Editar</button>
+                        <button class="btn" mat-flat-button color="primary" (click)="editarPerfil()">Editar</button>
                     </div>
                 </div>
                 <div class="repositorios">
@@ -26,16 +26,46 @@
                         </mat-list-item>
                     </mat-list>
                 </div>
-                <!-- <div class="seguidores-seguidos">
-                    <h2>Mis repositorios</h2>
-                    <mat-list>
-                        <mat-list-item *ngFor="let s of listaSeguidores" lines="3" (click)="openRepo()">
-                            <mat-icon matListItemIcon>account</mat-icon>
-                            <span matListItemTitle>{{s.nombre}}</span>
-                        </mat-list-item>
-                    </mat-list>
-                </div> -->
+                <div class="seguidores-seguidos">
+                    <span class="sinSeguidores" *ngIf="this.listaSeguidores.length == 0">Sin seguidores</span>
+                    <div class="seguidores" *ngIf="this.listaSeguidores.length != 0">
+                        <h2>Seguidores</h2>
+                        <mat-list>
+                            <mat-list-item *ngFor="let s of listaSeguidores" lines="3" (click)="openRepo()">
+                                <mat-icon matListItemIcon>account</mat-icon>
+                                <span matListItemTitle>{{s.nombre}}</span>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <div class="seguidos" *ngIf="this.listaSeguidos.length != 0">
+                        <h2>Seguidores</h2>
+                        <span *ngIf="this.listaSeguidores.length == 0">Sin seguidores</span>
+                        <mat-list>
+                            <mat-list-item *ngFor="let s of listaSeguidos" lines="3" (click)="openRepo()">
+                                <mat-icon matListItemIcon>account</mat-icon>
+                                <span matListItemTitle>{{s.nombre}}</span>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+                </div>
             </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="isEditing">
+        <mat-card-content style="display: grid; place-content: center center">
+            <mat-card-title style="text-align: center;">Editar perfil</mat-card-title>
+            <form (ngSubmit)="submitChanges()" [formGroup]="userForm">
+                <mat-form-field>
+                    <mat-label>Usuario</mat-label>
+                    <input matInput type="text" formControlName="username">
+                </mat-form-field>
+                <button type="button" mat-raised-button (click)="fileInput.click()">Seleccionar imagen</button>
+                <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file" formControlName="foto">
+                <span>{{fileSelected.name}}</span>
+                <button type="submit" mat-flat-button color="primary" style="width: 100%;">Subir cambios</button>
+            </form>
         </mat-card-content>
     </mat-card>
 </div>

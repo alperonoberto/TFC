@@ -1,12 +1,14 @@
-<form>
+<form (keydown.enter)="$event.preventDefault()"
+    (keydown.shift.enter)="$event.preventDefault()">
     <mat-form-field>
         <mat-label>Buscar</mat-label>
-        <input type="text" matInput placeholder="Usuarios, repositorios, etc..." [formControl]="searchbar" [matAutocomplete]="auto">
-        <button matSuffix mat-button color="primary" style="text-align: center;">
+        <input #user type="text" matInput placeholder="Usuarios, repositorios, etc..." [formControl]="searchbar"
+            [matAutocomplete]="auto" (click)="$event.preventDefault()">
+        <button matSuffix mat-button color="primary" style="text-align: center;"  type="button" disabled="true">
             <mat-icon>search</mat-icon>
         </button>
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let user of filteredUsers | async" [value]="user">
+            <mat-option *ngFor="let user of filteredUsers | async" [value]="user" (click)="selectUser(user)">
                 {{user}}
             </mat-option>
         </mat-autocomplete>

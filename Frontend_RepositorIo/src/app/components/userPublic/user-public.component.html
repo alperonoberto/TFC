@@ -1,1 +1,44 @@
-<p>user-public works!</p>
+<div class="container">
+    <mat-card (*ngIf)="isLoaded">
+        <mat-card-content>
+            <mat-card-title>
+                <h1>{{user["username"]}}</h1>
+            </mat-card-title>
+            <mat-card-subtitle>
+                <h3>{{user["email"]}}</h3>
+            </mat-card-subtitle>
+            <div class="content">
+                <div class="user">
+                    <img class="profileImage" mat-card-avatar src="./../../../assets/anonimo.jpeg" alt="profile">
+                    <div class="info">
+                        <h3>Fecha de alta: {{user["fechaAlta"] | date:'short'}}</h3>
+                        <h3>Rol: {{user["rol"]}}</h3>
+                        <button mat-flat-button *ngIf="!isSeguido && !isHimself" color="primary" style="height: min-content;" (click)="seguirUsuario()">
+                            <span style="display: flex; align-items: center; justify-content: center; gap: .4rem; margin: 1rem 0 1rem 0;">
+                                <img src="./../../../assets/plusIconWhite.svg" alt="add_user" style="width: 2rem; height: 2rem;">
+                            Seguir usuario
+                            </span>
+                        </button>
+                        <button mat-flat-button *ngIf="isSeguido && !isHimself" color="accent" style="height: min-content;" (click)="dejarDeSeguirUsuario()">
+                            <span style="display: flex; align-items: center; justify-content: center; gap: .4rem; margin: 1rem 0 1rem 0;">
+                                <img src="./../../../assets/minusIconWhite.png" alt="remove_user" style="width: 2rem; height: 2rem;">
+                            Dejar de seguir
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div class="repositorios">
+                    <h2>Repositorios del usuario</h2>
+                    <span *ngIf="listaRepos.length == 0">Sin repositorios</span>
+                    <mat-list>
+                        <mat-list-item *ngFor="let rep of listaRepos" lines="3">
+                            <mat-icon matListItemIcon>folder</mat-icon>
+                            <span matListItemTitle>{{rep.nombre.replaceAll("_", " ")}}</span>
+                            <span matListItemLine>{{rep.descripcion}}</span>
+                        </mat-list-item>
+                    </mat-list>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

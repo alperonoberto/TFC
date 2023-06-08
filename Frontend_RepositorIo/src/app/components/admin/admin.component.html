@@ -36,6 +36,17 @@
             </td>
         </ng-container>
 
+        <ng-container matColumnDef="accion2">
+            <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+            <td mat-cell *matCellDef="let user" >
+                <span *ngIf="user.rol==='ADMIN'" style="font-style: italic;">No se puede elevar permisos a una cuenta de administrador</span>
+                <button mat-flat-button color="primary" (click)="upgradeUser(user)" *ngIf="user.rol!=='ADMIN'">
+                    <mat-icon>work</mat-icon>
+                    <span>Elevar permisos</span>
+                </button>
+            </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

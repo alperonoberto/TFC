@@ -58,6 +58,11 @@ h1, h3 {
 
 .seguidores-seguidos {
     grid-area: seguidores;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 
 // .content {
@@ -91,5 +96,14 @@ ul {
 mat-list-item:hover {
     background-color: rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+form {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
 }
 

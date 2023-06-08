@@ -7,12 +7,13 @@ import { BASE_URL } from 'src/app/environment/index';
 })
 export class LoginService {
 
-  public urlUsersGet = BASE_URL + 'users/';
-  public urlUsersGetById = BASE_URL + 'users/';
-  public urlUsersPost = BASE_URL + 'users/add';
-  public urlUsersPut = BASE_URL + 'users/update';
-  public urlUsersDelete = BASE_URL + 'users/delete/';
-  public urlUsersEncrypt = BASE_URL + 'users/encrypt';
+  private urlUsersGet = BASE_URL + 'users/';
+  private urlUsersGetById = BASE_URL + 'users/';
+  private urlUsersPost = BASE_URL + 'users/add';
+  private urlUsersPut = BASE_URL + 'users/update';
+  private urlUsersDelete = BASE_URL + 'users/delete/';
+  private urlUsersEncrypt = BASE_URL + 'users/encrypt';
+  private urlUsersGetByUsername = BASE_URL + 'users/username/';
 
   constructor(private _http: HttpClient) { }
 
@@ -32,6 +33,10 @@ export class LoginService {
     return this._http.get(this.urlUsersGetById + id);
   }
 
+  public getUserByUsername(username: string) {
+    return this._http.get(this.urlUsersGetByUsername + username);
+  }
+
   public getUserLoggedIn() {
     return this.getUserById(this.user.id);
   }
@@ -46,6 +51,10 @@ export class LoginService {
 
   public deleteUser(user) {
     return this._http.delete(this.urlUsersDelete + user.id);
+  }
+
+  public updateUser(user) {
+    return this._http.put(this.urlUsersPut, user)
   }
   
 }

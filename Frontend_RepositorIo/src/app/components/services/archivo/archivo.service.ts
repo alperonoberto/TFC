@@ -8,6 +8,7 @@ import { BASE_URL } from 'src/app/environment/environment.constants';
 export class ArchivoService {
   private urlGetArchivosByRepo = BASE_URL + 'archivos/repositorio/';
   private urlPostArchivos = BASE_URL + 'archivos/upload/';
+  private urlPostProfilePic = BASE_URL + 'archivos/upload/profile/';
   private urlDeleteArchivos = BASE_URL + 'archivos/delete/';
   private urlDownloadFiles = BASE_URL + 'archivos/download';
 
@@ -17,11 +18,15 @@ export class ArchivoService {
     return this.http.get(this.urlGetArchivosByRepo + id);
   }
 
-  public postArchivos(files: FormData, user, repositorio) {
+  public postArchivos(files: FormData, userId, repositorioName) {
     return this.http.post(
-      `${this.urlPostArchivos}${user}/${repositorio}`,
+      `${this.urlPostArchivos}${userId}/${repositorioName}`,
       files
     );
+  }
+
+  public postProfilePic(file: FormData, userId: any) {
+    return this.http.post(this.urlPostProfilePic + userId, file);
   }
 
   public deleteArchivo(file: any) {

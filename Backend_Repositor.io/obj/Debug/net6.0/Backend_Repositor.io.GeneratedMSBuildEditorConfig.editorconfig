@@ -9,25 +9,9 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Backend_Repositor.io
 build_property.RootNamespace = Backend_Repositor.io
-<<<<<<< HEAD
-<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\Usuario\Desktop\TFC\Backend_Repositor.io\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\Usuario\Desktop\TFC\Backend_Repositor.io
-=======
-build_property.ProjectDir = C:\Users\ALUMNOS_FP\Desktop\TFC\Backend_Repositor.io\
-build_property.RazorLangVersion = 6.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\ALUMNOS_FP\Desktop\TFC\Backend_Repositor.io
->>>>>>> c97e302eb50dc4a25f2a1114717a7bf7785504ef
-=======
-build_property.ProjectDir = C:\Users\User\Desktop\PROGRAMACIÓN\ANGULAR\REPOSITOR.IO\Backend_Repositor.io\
-build_property.RazorLangVersion = 6.0
-build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\User\Desktop\PROGRAMACIÓN\ANGULAR\REPOSITOR.IO\Backend_Repositor.io
->>>>>>> 897b1cfe173520429b8660af89890b0043ecb7da
 build_property._RazorSourceGeneratorDebug = 

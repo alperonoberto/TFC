@@ -63,6 +63,26 @@ namespace Backend_Repositor.io.Controllers
                 return BadRequest(ex + " Error al subir archivos");
             }
         }
+
+        [HttpPost("upload/profile/{usuarioId}")]
+        public IActionResult UploadProfilePic([FromRoute] string usuarioId)
+        {
+            try
+            {
+                var files = Request.Form.Files.ToList();
+                var user = _context.Users.Where(u => u.Id == Convert.ToInt32(usuarioId)).First();
+                var directory = "Repositorios\\" + user.Username + "\\" + "Profile";
+                var fullDirectory = Path.Combine(_hostingEnvironment.WebRootPath, directory);
+                
+                _fileService.UploadFiles(files, directory);
+
+                return Ok($"Files: {files.Count} Size: {_fileService.SizeConverter(files.Sum(f => f.Length))}");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex + " Error al subir archivos");
+            }
+        }
         #endregion
 
         #region Download File  

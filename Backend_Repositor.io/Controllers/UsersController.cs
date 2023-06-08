@@ -42,6 +42,19 @@ namespace Backend_Repositor.io.Controllers
             return usuario;
         }
 
+        [HttpGet("username/{username}")]
+        public async Task<ActionResult<User>> GetUsuarioByUsername(string username)
+        {
+            var usuario = await _context.Users.Where(u => u.Username == username).FirstOrDefaultAsync();
+
+            if (usuario == null)
+            {
+                return NotFound("El usuario no existe");
+            }
+
+            return usuario;
+        }
+
         [HttpGet("encrypt")]
         public async Task<string> GetUsuarioEncrypted(string login)
         {
@@ -54,6 +67,13 @@ namespace Backend_Repositor.io.Controllers
         [Route("add")]
         public async Task<ActionResult<User>> Post([FromBody] User usuario)
         {
+            var user = await _context.Users.FindAsync(usuario);
+
+            if(user.Username != "")
+            {
+                return BadRequest("El usuario ya existe");
+            }
+
             usuario.FechaAlta = DateTime.Now;
             usuario.Password = Encryption.EncodePassword(usuario.Password);
             _context.Users.Add(usuario);

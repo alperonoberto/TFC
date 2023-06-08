@@ -243,7 +243,7 @@ export class RepositoriosComponent implements OnInit {
   
       dialogRef.afterClosed().subscribe((res) => {
         if (res) {
-          this.filesToDelete.forEach((file) => {
+          files.forEach((file) => {
             this._archivoService.deleteArchivo(file).subscribe(
               (res) => {
                 console.log(res);

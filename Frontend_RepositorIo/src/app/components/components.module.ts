@@ -14,6 +14,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { HttpClientModule } from '@angular/common/http';
 import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -26,6 +28,7 @@ import { UserComponent } from './user/user.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { UserPublicComponent } from './userPublic/user-public.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { UserPublicComponent } from './userPublic/user-public.component';
     UserComponent,
     SearchbarComponent,
     UserPublicComponent,
+    AdminComponent,
   ],
   imports: [
     CommonModule,
@@ -56,6 +60,8 @@ import { UserPublicComponent } from './userPublic/user-public.component';
     MatCheckboxModule,
     MatListModule,
     MatAutocompleteModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     ToolbarComponent,

@@ -259,6 +259,11 @@ export class RepositoriosComponent implements OnInit {
     this.filesToDelete = []; 
     this.filesToDownloadIds = [];
   }
+
+  nuevoRepositorio() {
+    this.vaciarListas();
+    this.isCreandoRepo = true;
+  }
 }
 
 @Directive({ selector: '[after-if]' })

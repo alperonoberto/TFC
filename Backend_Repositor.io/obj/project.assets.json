@@ -5212,16 +5212,21 @@
   },
   "packageFolders": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\Usuario\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
 =======
     "C:\\Users\\ALUMNOS_FP\\.nuget\\packages\\": {}
 >>>>>>> c97e302eb50dc4a25f2a1114717a7bf7785504ef
+=======
+    "C:\\Users\\User\\.nuget\\packages\\": {}
+>>>>>>> 897b1cfe173520429b8660af89890b0043ecb7da
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
 <<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Usuario\\Desktop\\TFC\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
       "projectName": "Backend_Repositor.io",
@@ -5235,6 +5240,13 @@
       "packagesPath": "C:\\Users\\ALUMNOS_FP\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\ALUMNOS_FP\\Desktop\\TFC\\Backend_Repositor.io\\obj\\",
 >>>>>>> c97e302eb50dc4a25f2a1114717a7bf7785504ef
+=======
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+      "projectName": "Backend_Repositor.io",
+      "projectPath": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\Backend_Repositor.io.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\obj\\",
+>>>>>>> 897b1cfe173520429b8660af89890b0043ecb7da
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -5242,17 +5254,22 @@
       ],
       "configFilePaths": [
 <<<<<<< HEAD
+<<<<<<< HEAD
         "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
 =======
         "C:\\Users\\ALUMNOS_FP\\AppData\\Roaming\\NuGet\\NuGet.Config",
 >>>>>>> c97e302eb50dc4a25f2a1114717a7bf7785504ef
+=======
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 897b1cfe173520429b8660af89890b0043ecb7da
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5314,10 +5331,14 @@
           }
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
 =======
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
 >>>>>>> c97e302eb50dc4a25f2a1114717a7bf7785504ef
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+>>>>>>> 897b1cfe173520429b8660af89890b0043ecb7da
       }
     }
   }

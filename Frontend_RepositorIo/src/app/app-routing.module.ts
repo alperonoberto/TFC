@@ -7,10 +7,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { RepositoriosComponent } from './components/repositorios/repositorios.component';
 import { UserComponent } from './components/user/user.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: HomeComponent },
   { path: 'register', component: RegisterComponent },

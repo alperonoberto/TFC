@@ -1,7 +1,7 @@
 <div class="container">
     <mat-grid-list cols="4" rowHeight="80vh" gutterSize="1rem">
         <mat-grid-tile colspan="1">
-            <button mat-flat-button color="primary" (click)="isCreandoRepo=true"><mat-icon>library_add</mat-icon> Nuevo
+            <button mat-flat-button color="primary" (click)="nuevoRepositorio()"><mat-icon>library_add</mat-icon> Nuevo
                 repositorio</button>
             <div class="card" *ngFor="let rep of listaRepositorios">
                 <h3>{{rep.nombre.replaceAll('_', ' ')}}</h3>

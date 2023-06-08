@@ -9,6 +9,7 @@
     </span>
     <div class="links">
       <a mat-button [routerLink]="'/home'"> <mat-icon>house</mat-icon> Inicio </a>
+      <a mat-button [routerLink]="'/admin'" *ngIf="isLoggedIn && isAdmin"> <mat-icon>build</mat-icon> Administrar </a>
       <a mat-button [routerLink]="'/repositories'" *ngIf="isLoggedIn"> <mat-icon>archive</mat-icon> Repositorios </a>
       <a mat-button [routerLink]="'/contact'"> <mat-icon>phone</mat-icon> Contacto </a>
       <a mat-button [routerLink]="'/register'" *ngIf="!isLoggedIn"> <mat-icon>assignment</mat-icon> Crear cuenta </a>

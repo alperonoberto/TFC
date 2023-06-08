@@ -16,7 +16,6 @@ import Utf8 from 'crypto-js/enc-utf8';
 })
 export class UserComponent implements OnInit {
   constructor(
-    private _archivoService: ArchivoService,
     private _loginService: LoginService,
     private _relacionService: RelacionesService,
     private _repositorioService: RepositorioService,
@@ -40,6 +39,7 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._loginService.user;
+    this.user.profilePicture.length > 0 ? this.srcResult = this.user.profilePicture : null;
     this._repositorioService.getRepositoriosByUser(this.user.id).subscribe(
       (res) => {
         this.listaRepos = [...[res]].flat();
@@ -95,10 +95,14 @@ export class UserComponent implements OnInit {
     //   )
 
     this.user.username = this.userForm.get('username').value;
+    this.user.profilePicture = this.base64String;
 
     this._loginService.updateUser(this.user).subscribe(
       (res) => {
         console.log(res);
+        this.isEditing = false;
+        this.srcResult = this.base64String;
+        document.querySelector('.profileImage').setAttribute('src', this.srcResult)
       },
       (err) => {
         console.log(err);
@@ -108,23 +112,33 @@ export class UserComponent implements OnInit {
 
   onFileSelected(event: any) {
     this.fileSelected = event.target.files[0];
-    this.base64String = this.getBase64(this.fileSelected);
-
-    // this.base64String = Base64.stringify(Utf8.parse(this.fileSelected));
-
-    console.log(this.fileSelected);
-    console.log(this.base64String);
+    this.getBase64(this.fileSelected)
+      .then(
+        res => {
+          this.base64String = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
   }
 
-  getBase64(file): string {
-    var reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      console.log(reader.result);
-      return reader.result;
-    };
-    return '';
+  getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (typeof reader.result === 'string') {
+          this.base64String = reader.result;
+          resolve(this.base64String);
+        } else {
+          reject(new Error('Invalid result type. Expected a string.'));
+        }
+  
+      };
+      reader.onerror = (error) => {
+        reject(error);
+      };
+      reader.readAsDataURL(file);
+    });
   }
-
-
 }

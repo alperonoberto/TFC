@@ -11,6 +11,7 @@ namespace Backend_Repositor.io.Models
         public string Email { get; set; }
         public DateTime? FechaAlta { get; set; }
         public string Rol { get; set; }
+        public string ProfilePicture { get; set; }
 
         public ICollection<Repositorio>? Repositorios { get; set; }
         public ICollection<Relacion>? Seguidor { get; set; }

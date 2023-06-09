@@ -21,19 +21,31 @@ export class LoginComponent extends AuthComponent implements OnInit {
     }
 
   loginError: boolean = false;
+  isLoading = true
 
   public listaUsers = [];
 
   ngOnInit() {
+    // this.loginService.getUsers()
+    //   .subscribe(
+    //     res => {
+    //       this.listaUsers = [res].flat();
+    //     },
+    //     err => {
+    //       console.error('Error GET usuarios');
+    //     }
+    //   )
     this.loginService.getUsers()
-      .subscribe(
-        res => {
+      .subscribe({
+        next: res => {
           this.listaUsers = [res].flat();
         },
-        err => {
-          console.error('Error GET usuarios');
+        error: err => {
+          console.log(err)
+        }, complete: () => {
+          this.isLoading = false;
         }
-      )
+      })
   }
 
   loginForm = new FormGroup({
@@ -49,10 +61,38 @@ export class LoginComponent extends AuthComponent implements OnInit {
       password: null,
       rol: null
     }
-    this.loginService
+    // this.loginService
+    //   .getPasswordEncrypted(this.loginForm.value.password)
+    //   .subscribe(
+    //     res => {
+    //       user.password = res;
+
+    //       for(let i = 0; i < this.listaUsers.length; i++) {
+    //         let dbUser = this.listaUsers[i];
+      
+    //         if(user.username === dbUser["username"] && user.password === dbUser["password"]) {
+    //           this.loginService.isLoggedIn.emit(true);
+    //           this.loginService.setUserLoggedIn(dbUser);
+
+    //           if(user.username == 'admin') {
+    //             this.loginService.isAdmin.emit(true)
+    //           }
+
+    //           this.router.navigate(['/home']);
+    //         }
+    //       }
+          
+    //       this.loginError = true;
+    //       this.loginForm.reset();
+    //     },
+    //     err => {
+    //       console.error(err)
+    //     }
+    //   );
+      this.loginService
       .getPasswordEncrypted(this.loginForm.value.password)
-      .subscribe(
-        res => {
+      .subscribe({
+        next: res => {
           user.password = res;
 
           for(let i = 0; i < this.listaUsers.length; i++) {
@@ -70,13 +110,14 @@ export class LoginComponent extends AuthComponent implements OnInit {
             }
           }
           
-          this.loginError = true;
           this.loginForm.reset();
         },
-        err => {
-          console.error(err)
+        error: err => {
+          console.log(err)
+          this.loginError = true;
+          this.loginForm.reset();
         }
-      );
+      })
   }
 
   

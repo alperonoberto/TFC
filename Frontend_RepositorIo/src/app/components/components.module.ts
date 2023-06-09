@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
@@ -62,6 +63,7 @@ import { AdminComponent } from './admin/admin.component';
     MatAutocompleteModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     ToolbarComponent,

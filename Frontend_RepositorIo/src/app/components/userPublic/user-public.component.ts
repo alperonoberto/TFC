@@ -30,35 +30,71 @@ export class UserPublicComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this._loginService.getUserLoggedIn().subscribe(
-      (res) => {
+    // this._loginService.getUserLoggedIn().subscribe(
+    //   (res) => {
+    //     this.userLogged = res;
+    //     console.log(this.userLogged);
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
+    this._loginService.getUserLoggedIn().subscribe({
+      next: res => {
+        console.log(res);
         this.userLogged = res;
-        console.log(this.userLogged);
       },
-      (err) => {
+      error: err => {
         console.log(err);
       }
-    );
-    this._searchService.userSearched.subscribe(
-      (res) => {
-        this.user = res;
-        console.log(this.user);
+    })
 
-        this._repoService.getRepositoriosByUser(res['id']).subscribe(
-          (res) => {
-            this.listaRepos = [res].flat();
-            this.checkRelacion();
-            this.isLoaded = true;
-          },
-          (err) => {
-            console.log(err);
-          }
-        );
+    // this._searchService.userSearched.subscribe(
+    //   (res) => {
+    //     this.user = res;
+    //     console.log(this.user);
+
+    //     this._repoService.getRepositoriosByUser(res['id']).subscribe(
+    //       (res) => {
+    //         this.listaRepos = [res].flat();
+    //         this.checkRelacion();
+    //         this.isLoaded = true;
+    //       },
+    //       (err) => {
+    //         console.log(err);
+    //       }
+    //     );
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
+    this._searchService.userSearched.subscribe({
+      next: res => {
+        this.user = res;
+        console.log(res)
+        this._repoService.getRepositoriosByUser(this.user['id'])
+          .subscribe({
+            next: res => {
+              this.listaRepos = [res].flat();
+              this.checkRelacion();
+              this.isLoaded = true;
+            },
+            error: err => {
+              console.log(err)
+            }
+          })
       },
-      (err) => {
-        console.log(err);
+      error: err => {
+        console.log(err)
+      },
+      complete: res => {
+        console.log(res)
+
+        
       }
-    );
+    })
+
   }
 
   public checkRelacion() {
@@ -68,7 +104,6 @@ export class UserPublicComponent implements OnInit {
         this.listaRelaciones = [res].flat();
 
         this.listaRelaciones.forEach((r) => {
-          console.log(r);
           if(this.userLogged.id == this.user.id) {
             this.router.navigateByUrl('/user')
             this.isHimself = true;

@@ -1,3 +1,6 @@
+<div class="loader-container">
+    <mat-spinner mode="indeterminate"></mat-spinner>
+</div>
 <div class="container">
     <mat-card (*ngIf)="isLoaded">
         <mat-card-content>
@@ -9,7 +12,7 @@
             </mat-card-subtitle>
             <div class="content">
                 <div class="user">
-                    <img class="profileImage" mat-card-avatar src="./../../../assets/anonimo.jpeg" alt="profile">
+                    <img class="profileImage" mat-card-avatar src="user['profilePicture']" alt="profile">
                     <div class="info">
                         <h3>Fecha de alta: {{user["fechaAlta"] | date:'short'}}</h3>
                         <h3>Rol: {{user["rol"]}}</h3>
@@ -34,7 +37,7 @@
                         <mat-list-item *ngFor="let rep of listaRepos" lines="3">
                             <mat-icon matListItemIcon>folder</mat-icon>
                             <span matListItemTitle>{{rep.nombre.replaceAll("_", " ")}}</span>
-                            <span matListItemLine>{{rep.descripcion}}</span>
+                            <span matListItemLine>{{rep.descripcion | async}}</span>
                         </mat-list-item>
                     </mat-list>
                 </div>

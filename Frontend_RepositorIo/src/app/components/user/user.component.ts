@@ -49,23 +49,53 @@ export class UserComponent implements OnInit {
       }
     );
 
-    this._relacionService.GetRelacionesByUser(this.user.id).subscribe(
-      (res) => {
-        console.log(res);
-        this.listaRelaciones = [res].flat();
+    // this._relacionService.GetRelacionesByUser(this.user.id).subscribe(
+    //   (res) => {
+    //     console.log(res);
+    //     this.listaRelaciones = [res].flat();
 
-        this.listaSeguidores = this.listaRelaciones.filter((r) => {
-          r.seguidoId === this.user.id;
-        });
+    //     this.listaSeguidores = this.listaRelaciones.filter((r) => {
+    //       r.seguidoId === this.user.id;
+    //     });
 
-        this.listaSeguidos = this.listaRelaciones.filter((r) => {
-          r.seguidorId === this.user.id;
-        });
+    //     this.listaSeguidos = this.listaRelaciones.filter((r) => {
+    //       r.seguidorId === this.user.id;
+    //     });
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
+
+    this._relacionService.GetRelacionesByUser(this.user.id).subscribe({
+      next: res => {
+        
+        this.listaRelaciones = [res].flat()
+
+        // this.listaSeguidores = this.listaRelaciones.filter((r) => {
+        //   r.seguidoId == this.user.id;
+        // })
+
+        // this.listaSeguidos = this.listaRelaciones.filter((r) => {
+        //   r.seguidorId == this.user.id;
+        // })
+
+        this.listaRelaciones.forEach(r => {
+          if(r.seguidoId == this.user.id) {
+            this.listaSeguidores.push(r)
+          }
+          if(r.seguidorId == this.user.id) {
+            this.listaSeguidos.push(r)
+          }
+        })
+        console.log(this.listaRelaciones)
+        console.log(this.listaSeguidores)
+        console.log(this.listaSeguidos)
       },
-      (err) => {
+      error: err => {
         console.log(err);
       }
-    );
+    })
   }
 
   public openRepo() {

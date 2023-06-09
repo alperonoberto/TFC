@@ -8,6 +8,18 @@
     min-height: 89vh;
 }
 
+.loader-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+
+    mat-spinner {
+        top: 30%;
+        left: 50%;
+    }
+}
+
 mat-card {
     width: max-content;
     padding: 5rem;

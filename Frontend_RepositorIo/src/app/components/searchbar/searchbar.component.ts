@@ -54,16 +54,30 @@ export class SearchbarComponent implements OnInit {
     return this.usernamesList.filter(user => user.toLowerCase().includes(filterValue));
   }
 
-  public mostrarUserPage(user: string) {
-    this._loginService.getUserByUsername(user)
-      .subscribe(
-        res => {
-          console.log(res["username"])
-          this._searchService.userSearched.emit(res);
-          this.router.navigateByUrl("public/user");
+  public async mostrarUserPage(user: string) {
+    // this._loginService.getUserByUsername(user)
+    //   .subscribe(
+    //     res => {
+    //       console.log(res["username"])
+    //       this._searchService.userSearched.emit(res);
+    //       this.router.navigateByUrl("public/user");
 
+    //     }
+    //   )
+
+    this._loginService.getUserByUsername(user)
+      .subscribe({
+        next: res => {
+          console.log(res["username"])
+          this._searchService.userSearched.emit(res)
+        },
+        error: err => {
+          console.log(err)
+        },
+        complete: () => {
+          this.router.navigateByUrl("public/user")
         }
-      )
+      })
   }
 
   public selectUser(user: string) {

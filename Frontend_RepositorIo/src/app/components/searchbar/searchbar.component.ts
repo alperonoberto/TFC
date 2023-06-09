@@ -34,18 +34,31 @@ export class SearchbarComponent implements OnInit {
 
 
   private cargarUsers(): void {
-    this._loginService.getUsers().subscribe(
-      (res) => {
-        this.usersList = [...[res]].flat();
-        this.usersList.forEach(user => {
-          this.usernamesList.push(user.username);
-        })
+    // this._loginService.getUsers().subscribe(
+    //   (res) => {
+    //     this.usersList = [...[res]].flat();
+    //     this.usersList.forEach(user => {
+    //       this.usernamesList.push(user.username);
+    //     })
         
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   }
+    // );
+    this._loginService.getUsers()
+      .subscribe({
+        next: res => {
+          this.usersList = [res].flat();
+          this.usersList.forEach(user => {
+            this.usernamesList.push(user.username)
+          })
+        },
+        error: err => {
+          console.log(err)
+        },
+        complete: () => {}
+      })
   }
 
   private _filter(value: string): string[] {

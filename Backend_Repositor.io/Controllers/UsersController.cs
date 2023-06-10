@@ -67,9 +67,9 @@ namespace Backend_Repositor.io.Controllers
         [Route("add")]
         public async Task<ActionResult<User>> Post([FromBody] User usuario)
         {
-            var user = await _context.Users.FindAsync(usuario);
+            var user = await _context.Users.FindAsync(usuario.Id);
 
-            if(user.Username != "")
+            if(user != null
             {
                 return BadRequest("El usuario ya existe");
             }

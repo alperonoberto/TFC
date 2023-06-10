@@ -26,15 +26,6 @@ export class LoginComponent extends AuthComponent implements OnInit {
   public listaUsers = [];
 
   ngOnInit() {
-    // this.loginService.getUsers()
-    //   .subscribe(
-    //     res => {
-    //       this.listaUsers = [res].flat();
-    //     },
-    //     err => {
-    //       console.error('Error GET usuarios');
-    //     }
-    //   )
     this.loginService.getUsers()
       .subscribe({
         next: res => {

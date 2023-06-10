@@ -21,7 +21,7 @@ h1, h3 {
     display: grid;
     grid-template-columns: 25rem auto;
     grid-template-rows: auto auto;
-    grid-template-areas: "user repositorios" "user repositorios";
+    grid-template-areas: "user repositorios seguidores" "user repositorios seguidores";
 }
 
 .user {
@@ -54,15 +54,16 @@ h1, h3 {
 
 .repositorios {
     grid-area: repositorios;
+    width: fit-content;
 }
 
-.seguidores-seguidos {
+.seguidores {
     grid-area: seguidores;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // gap: 1rem;
 }
 
 // .content {

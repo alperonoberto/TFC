@@ -15,6 +15,8 @@ export class ContactComponent implements OnInit {
     descripcion: new FormControl(""),
   });
 
+  public isLoading = true
+
   constructor(
     protected _loginService: LoginService
   ) {}
@@ -27,6 +29,8 @@ export class ContactComponent implements OnInit {
           this.contactForm.patchValue({
             autor: res['email']
           })
+
+          this.isLoading = false
         },
         err => {
           console.log(err)

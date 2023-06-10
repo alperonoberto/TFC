@@ -27,17 +27,31 @@ export class RegisterComponent {
         email: this.registerForm.get('email').value,
         rol: this.registerForm.get('username').value == 'admin' ? 'ADMIN' : 'USER'
       }
+      // this._registerService.postUser(user)
+      //   .subscribe(
+      //     res => {
+      //       console.log(res);
+      //       this._loginService.isLoggedIn.emit(true);
+      //       this.router.navigate(['/home']);
+      //     },
+      //     error => {
+      //       console.error('Error POST usuarios');
+      //     }
+      //   );
+
       this._registerService.postUser(user)
-        .subscribe(
-          res => {
+        .subscribe({
+          next: res => {
             console.log(res);
+          },
+          error: err => {
+            console.log(err)
+          },
+          complete: () => {
             this._loginService.isLoggedIn.emit(true);
             this.router.navigate(['/home']);
-          },
-          error => {
-            console.error('Error POST usuarios');
           }
-        );
+        })
     this.registerForm.reset();
   }
 

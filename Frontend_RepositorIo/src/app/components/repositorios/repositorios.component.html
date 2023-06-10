@@ -45,7 +45,7 @@
             <h1>{{repositorioActualNombre.replaceAll("_", " ")}}</h1>
             <div class="files">
                 <div class="file-card" *ngFor="let file of listaArchivos">
-                    <mat-checkbox (change)="addSelectedFile($event, file)"></mat-checkbox>
+                    <mat-checkbox #checkboxes (change)="addSelectedFile($event, file)"></mat-checkbox>
                     <mat-icon>{{file.filename.split(".")[1].toLowerCase() == 'jpg' || file.filename.split(".")[1].toLowerCase() == 'jpeg' || file.filename.split(".")[1].toLowerCase() == 'png' ? 'insert_photo' : 'library_books'}}</mat-icon>
                     <span>{{file.filename}}</span>
                     <span style="margin-top: 1rem;"><strong>{{file.fileSize}}</strong></span>

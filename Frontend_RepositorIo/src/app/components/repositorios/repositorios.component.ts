@@ -2,9 +2,12 @@ import {
   AfterContentInit,
   Component,
   Directive,
+  ElementRef,
   EventEmitter,
   OnInit,
   Output,
+  QueryList,
+  ViewChildren,
 } from '@angular/core';
 import { RepositorioService } from '../services/repositorio/repositorio.service';
 import { LoginService } from '../services/login/login.service';
@@ -20,6 +23,8 @@ import { saveAs } from 'file-saver';
   styleUrls: ['./repositorios.component.scss'],
 })
 export class RepositoriosComponent implements OnInit {
+  @ViewChildren("checkboxes") checkboxes: QueryList<ElementRef>;
+
   public repositorioActual: number = 0;
   public repositorioActualNombre: string = '';
   public isCreandoRepo: boolean;
@@ -167,6 +172,7 @@ export class RepositoriosComponent implements OnInit {
         (res) => {
           console.log(res);
           saveAs(res, files[0]['filename']);
+          this.uncheckAll();
         },
         (err) => {
           console.log(err);
@@ -178,6 +184,7 @@ export class RepositoriosComponent implements OnInit {
           console.log(res);
           const blob = new Blob([res], { type: 'application/zip' });
           saveAs(blob, this.repositorioActualNombre);
+          this.uncheckAll();
         },
         (err) => {
           console.log(err);
@@ -282,6 +289,14 @@ export class RepositoriosComponent implements OnInit {
     this.vaciarListas();
     this.isCreandoRepo = true;
   }
+
+  uncheckAll() {
+    this.checkboxes.forEach((element) => {
+      console.log(element);
+      element.nativeElement.checked = false;
+    });
+  }
+
 }
 
 @Directive({ selector: '[after-if]' })

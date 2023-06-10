@@ -26,28 +26,15 @@
                         </mat-list-item>
                     </mat-list>
                 </div>
-                <div class="seguidores-seguidos">
+                <div class="seguidores">
                     <span class="sinSeguidores" *ngIf="this.listaSeguidores.length == 0">Sin seguidores</span>
-                    <div class="seguidores" *ngIf="this.listaSeguidores.length != 0">
-                        <h2>Seguidores</h2>
-                        <mat-list>
-                            <mat-list-item *ngFor="let s of listaSeguidores" lines="3" (click)="openRepo()">
-                                <mat-icon matListItemIcon>account</mat-icon>
-                                <span matListItemTitle>{{s.nombre}}</span>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
-
-                    <div class="seguidos" *ngIf="this.listaSeguidos.length != 0">
-                        <h2>Seguidores</h2>
-                        <span *ngIf="this.listaSeguidores.length == 0">Sin seguidores</span>
-                        <mat-list>
-                            <mat-list-item *ngFor="let s of listaSeguidos" lines="3" (click)="openRepo()">
-                                <mat-icon matListItemIcon>account</mat-icon>
-                                <span matListItemTitle>{{s.nombre}}</span>
-                            </mat-list-item>
-                        </mat-list>
-                    </div>
+                    <h2>Seguidores</h2>
+                    <mat-list>
+                        <mat-list-item *ngFor="let s of listaSeguidores" (click)="mostrarUserPage(s.username)">
+                            <mat-icon matListItemIcon>supervisor_account</mat-icon>
+                            <span matListItemTitle>{{s.username}}</span>
+                        </mat-list-item>
+                    </mat-list>
                 </div>
             </div>
         </mat-card-content>
@@ -63,7 +50,7 @@
                 </mat-form-field>
                 <button type="button" mat-raised-button (click)="fileInput.click()">Seleccionar imagen</button>
                 <input hidden (change)="onFileSelected($event)" #fileInput type="file" id="file" formControlName="foto">
-                <span>{{fileSelected.name}}</span>
+                <span>{{fileSelected.filename}}</span>
                 <button type="submit" mat-flat-button color="primary" style="width: 100%;">Subir cambios</button>
             </form>
         </mat-card-content>

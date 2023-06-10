@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "inLVkuoGU6uzw70UxONgCLa5tBql+rzwaqdo5nzOgcw=",
+  "Hash": "uAhwENXSDFjIpeSYn4DtfaY/Cz9BMxBHXfgycm30Fo8=",
   "Source": "Backend_Repositor.io",
   "BasePath": "_content/Backend_Repositor.io",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aa\\911799.png"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\aaa\\images.jpg",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/admin/aaa/images.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\admin\\aaa\\images.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\admin\\Mi_musica\\gnomo.avif",
@@ -389,6 +406,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Repositorios\\Alberto\\polno\\9d15afe1ceb24678a057dce517b98b3e.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\alperonoberto66\\Cosas_varias\\aaa.zip",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/alperonoberto66/Cosas_varias/aaa.zip",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\alperonoberto66\\Cosas_varias\\aaa.zip"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\alperonoberto66\\Cosas_varias\\maxresdefault.jpg",
+      "SourceId": "Backend_Repositor.io",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\",
+      "BasePath": "_content/Backend_Repositor.io",
+      "RelativePath": "Repositorios/alperonoberto66/Cosas_varias/maxresdefault.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Repositorios\\alperonoberto66\\Cosas_varias\\maxresdefault.jpg"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\PROGRAMACIÓN\\ANGULAR\\REPOSITOR.IO\\Backend_Repositor.io\\wwwroot\\Repositorios\\elgnomodelawa\\gnomos\\blog-sobre-gnomos-de-jardín.jpg",

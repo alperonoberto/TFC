@@ -12,6 +12,7 @@ export class AdminComponent implements OnInit {
   public user: any;
   public displayedColumns: string[] = ['id', 'username', 'fechaAlta', 'rol', 'accion', 'accion2'];
   public userList = [];
+  public isLoading = true
 
   constructor(
     private _loginService: LoginService,
@@ -25,6 +26,7 @@ export class AdminComponent implements OnInit {
         res => {
           this.userList = [...[res]].flat();
           console.log(this.userList)
+          this.isLoading = false;
         }
       )
   }

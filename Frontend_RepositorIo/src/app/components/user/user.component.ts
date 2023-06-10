@@ -8,6 +8,7 @@ import { ArchivoService } from '../services/archivo/archivo.service';
 // import * as crypto from 'crypto-js';
 import Base64 from 'crypto-js/enc-base64';
 import Utf8 from 'crypto-js/enc-utf8';
+import { SearchService } from '../services/search/search.service';
 
 @Component({
   selector: 'app-user',
@@ -19,14 +20,15 @@ export class UserComponent implements OnInit {
     private _loginService: LoginService,
     private _relacionService: RelacionesService,
     private _repositorioService: RepositorioService,
+    private _searchService: SearchService,
     private router: Router
   ) {}
 
   public user: any;
   public listaRepos: any[] = [];
   public listaRelaciones: any[] = [];
+  public listaRelacionesSeguidores: any[] = [];
   public listaSeguidores: any[] = [];
-  public listaSeguidos: any[] = [];
   public isEditing: boolean = false;
   public srcResult: string = './../../../assets/anonimo.jpeg';
   public base64String: string;
@@ -39,67 +41,61 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.user = this._loginService.user;
-    this.user.profilePicture.length > 0 ? this.srcResult = this.user.profilePicture : null;
-    this._repositorioService.getRepositoriosByUser(this.user.id).subscribe(
-      (res) => {
-        this.listaRepos = [...[res]].flat();
+    this.user.profilePicture.length > 0
+      ? (this.srcResult = this.user.profilePicture)
+      : null;
+
+    this._repositorioService.getRepositoriosByUser(this.user.id).subscribe({
+      next: (res) => {
+        this.listaRepos = [res].flat();
       },
-      (err) => {
-        console.error('Error GET repositorios');
-      }
-    );
-
-    // this._relacionService.GetRelacionesByUser(this.user.id).subscribe(
-    //   (res) => {
-    //     console.log(res);
-    //     this.listaRelaciones = [res].flat();
-
-    //     this.listaSeguidores = this.listaRelaciones.filter((r) => {
-    //       r.seguidoId === this.user.id;
-    //     });
-
-    //     this.listaSeguidos = this.listaRelaciones.filter((r) => {
-    //       r.seguidorId === this.user.id;
-    //     });
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
+      error: (err) => {
+        console.log(err);
+      },
+    });
 
     this._relacionService.GetRelacionesByUser(this.user.id).subscribe({
-      next: res => {
-        
-        this.listaRelaciones = [res].flat()
+      next: (res) => {
+        this.listaRelaciones = [res].flat();
 
-        // this.listaSeguidores = this.listaRelaciones.filter((r) => {
-        //   r.seguidoId == this.user.id;
-        // })
-
-        // this.listaSeguidos = this.listaRelaciones.filter((r) => {
-        //   r.seguidorId == this.user.id;
-        // })
-
-        this.listaRelaciones.forEach(r => {
-          if(r.seguidoId == this.user.id) {
-            this.listaSeguidores.push(r)
+        this.listaRelaciones.forEach((r) => {
+          if (r.seguidoId == this.user.id) {
+            this.listaRelacionesSeguidores.push(r);
           }
-          if(r.seguidorId == this.user.id) {
-            this.listaSeguidos.push(r)
-          }
-        })
-        console.log(this.listaRelaciones)
-        console.log(this.listaSeguidores)
-        console.log(this.listaSeguidos)
+        });
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-      }
-    })
+      },
+      complete: () => {
+        this.listaRelacionesSeguidores.forEach((seguidor) => {
+          this._loginService.getUserById(seguidor.seguidorId).subscribe({
+            next: (res) => {
+              console.log(res);
+              this.listaSeguidores.push(res);
+            },
+          });
+        });
+      },
+    });
   }
 
   public openRepo() {
     this.router.navigate(['repositories']);
+  }
+
+  public mostrarUserPage(username: string) {
+    this._loginService.getUserByUsername(username).subscribe({
+      next: (res) => {
+        this._searchService.userSearched.emit(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.router.navigateByUrl('public/user');
+      },
+    });
   }
 
   public editarPerfil() {
@@ -107,50 +103,45 @@ export class UserComponent implements OnInit {
 
     this.userForm.patchValue({
       username: this.user.username,
+      foto: this.user.profilePicture,
     });
   }
 
   public submitChanges() {
-    // let file = new FormData;
-    // file.append('file', this.fileSelected);
-
-    // this._archivoService.postProfilePic(file, this.user.Id)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res)
-    //     },
-    //     err => {
-    //       console.log(err)
-    //     }
-    //   )
-
     this.user.username = this.userForm.get('username').value;
-    this.user.profilePicture = this.base64String;
+    this.userForm.get('foto').pristine
+      ? (this.user.profilePicture = this.base64String)
+      : null;
 
-    this._loginService.updateUser(this.user).subscribe(
-      (res) => {
-        console.log(res);
+    console.log(this.srcResult)
+    console.log(this.userForm.get('foto'))
+    console.log(this.base64String)
+
+    this._loginService.updateUser(this.user).subscribe({
+      next: (res) => {
         this.isEditing = false;
         this.srcResult = this.base64String;
-        document.querySelector('.profileImage').setAttribute('src', this.srcResult)
+        document
+          .querySelector('.profileImage')
+          .setAttribute('src', this.srcResult);
+        this.router.navigateByUrl('user');
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  }
+
+  onFileSelected(event: any) {
+    this.fileSelected = event.target.files[0];
+    this.getBase64(this.fileSelected).then(
+      (res) => {
+        this.base64String = res;
       },
       (err) => {
         console.log(err);
       }
     );
-  }
-
-  onFileSelected(event: any) {
-    this.fileSelected = event.target.files[0];
-    this.getBase64(this.fileSelected)
-      .then(
-        res => {
-          this.base64String = res;
-        },
-        err => {
-          console.log(err);
-        }
-      );
   }
 
   getBase64(file: File): Promise<string> {
@@ -163,7 +154,6 @@ export class UserComponent implements OnInit {
         } else {
           reject(new Error('Invalid result type. Expected a string.'));
         }
-  
       };
       reader.onerror = (error) => {
         reject(error);

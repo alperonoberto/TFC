@@ -5,6 +5,7 @@ import { RepositorioService } from '../services/repositorio/repositorio.service'
 import { MatIcon } from '@angular/material/icon';
 import { RelacionesService } from '../services/relaciones/relaciones.service';
 import { Router } from '@angular/router';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-public',
@@ -15,9 +16,10 @@ export class UserPublicComponent implements OnInit {
   public user: any;
   public userLogged: any;
   public repo: any;
+  public userProfilePic: string;
   public listaRelaciones = [];
   public listaRepos = [];
-  public isLoaded: boolean = false;
+  public isLoading: boolean = true;
   public isSeguido: boolean = false;
   public isHimself: boolean = false;
 
@@ -30,15 +32,6 @@ export class UserPublicComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this._loginService.getUserLoggedIn().subscribe(
-    //   (res) => {
-    //     this.userLogged = res;
-    //     console.log(this.userLogged);
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
     this._loginService.getUserLoggedIn().subscribe({
       next: res => {
         console.log(res);
@@ -49,36 +42,17 @@ export class UserPublicComponent implements OnInit {
       }
     })
 
-    // this._searchService.userSearched.subscribe(
-    //   (res) => {
-    //     this.user = res;
-    //     console.log(this.user);
-
-    //     this._repoService.getRepositoriosByUser(res['id']).subscribe(
-    //       (res) => {
-    //         this.listaRepos = [res].flat();
-    //         this.checkRelacion();
-    //         this.isLoaded = true;
-    //       },
-    //       (err) => {
-    //         console.log(err);
-    //       }
-    //     );
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   }
-    // );
     this._searchService.userSearched.subscribe({
       next: res => {
         this.user = res;
+        this.userProfilePic = res["profilePicture"] == "" ? "./../../../assets/anonimo.jpeg" : res["profilePicture"];
         console.log(res)
         this._repoService.getRepositoriosByUser(this.user['id'])
           .subscribe({
             next: res => {
               this.listaRepos = [res].flat();
               this.checkRelacion();
-              this.isLoaded = true;
+              this.isLoading = false;
             },
             error: err => {
               console.log(err)
@@ -90,7 +64,7 @@ export class UserPublicComponent implements OnInit {
       },
       complete: res => {
         console.log(res)
-
+        
         
       }
     })

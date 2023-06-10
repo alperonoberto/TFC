@@ -1,6 +1,15 @@
+:host {
+    display: grid;
+    place-content: center;
+    background-image: url(../../../assets/background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 89vh;
+}
+
 .container {
     padding: 5rem;
-    background-image: url(./../../../assets/background.jpg);
     height: 70%;
 
     display: flex;
@@ -43,4 +52,16 @@
 
 th, td {
     text-align: center;
+}
+
+.loader-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+
+    mat-spinner {
+        top: 30%;
+        left: 50%;
+    }
 }

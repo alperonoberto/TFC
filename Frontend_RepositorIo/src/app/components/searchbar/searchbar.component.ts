@@ -68,27 +68,17 @@ export class SearchbarComponent implements OnInit {
   }
 
   public async mostrarUserPage(user: string) {
-    // this._loginService.getUserByUsername(user)
-    //   .subscribe(
-    //     res => {
-    //       console.log(res["username"])
-    //       this._searchService.userSearched.emit(res);
-    //       this.router.navigateByUrl("public/user");
-
-    //     }
-    //   )
 
     this._loginService.getUserByUsername(user)
       .subscribe({
         next: res => {
-          console.log(res["username"])
           this._searchService.userSearched.emit(res)
+          this.router.navigateByUrl("public/user")
         },
         error: err => {
           console.log(err)
         },
         complete: () => {
-          this.router.navigateByUrl("public/user")
         }
       })
   }
